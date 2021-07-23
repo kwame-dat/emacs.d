@@ -1,0 +1,12 @@
+.*
+!.gitignore
+!eshell/alias
+!lisp
+!emacs.org
+!README.md
+!Makefile
+!init.el
+!manual
+!resources
+!snippets
+/straight

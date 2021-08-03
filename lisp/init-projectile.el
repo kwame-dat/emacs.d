@@ -18,13 +18,9 @@
 					 "~/Nextcloud/Documents/Personal/3Resources"
 					 "~/Nextcloud/Documents/Personal/2Areas"
 					 "~/Nextcloud/Documents/Personal/1Projects"
-					 "~/Repo/Work/3Resources"
-					 "~/Repo/Work/2Areas"
-					 "~/Repo/Work/1Projects"
-					 "~/Repo/Personal/3Resources"
-					 "~/Repo/Personal/2Areas"
-					 "~/Repo/Personal/1Projects"
-
+					 "~/Repo/3Resources"
+					 "~/Repo/2Areas"
+					 "~/Repo/1Projects"
 					 ))
   (setq projectile-completion-system 'ivy)
   (setq projectile-switch-project-action #'projectile-dired)

@@ -25,6 +25,9 @@
   (add-hook 'emacs-startup-hook
             (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
+  (setq user-full-name "Tony Ampomah"
+        user-mail-address "tony@arksolutions.it")
+
 ;; Bootstrap config
 (require 'init-package-management)
 (require 'init-directory-clean)

@@ -8,7 +8,10 @@
 (tool-bar-mode -1)          ; Disable the toolbar
 (tooltip-mode -1)           ; Disable tooltips
 (set-fringe-mode 10)        ; Give some breathing room
-;; (menu-bar-mode -1)            ; Disable the menu bar
+(menu-bar-mode -1)            ; Disable the menu bar
+
+
+(global-visual-line-mode 1)
 
 ;;; Set up the visible bell
 (setq visible-bell t)

@@ -199,6 +199,7 @@
 	 "* SOMEDAY %?\n")))
 
 
+
 ;; I prefer indented in org mode please.
 (setq org-startup-indented t)
 
@@ -268,6 +269,21 @@
 ;; take more than one action step to complete.” As a result of
 ;; implementing Tiago Forte’s “PARA” system, I can ensure that I
 ;; always have an up to date project list.
+(use-package org-roam
+  :ensure t
+  :init
+  (setq org-roam-v2-ack t)
+  :custom
+  (org-roam-directory "~/Notes/Roam")
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+	 ("C-c n g" . org-roam-graph)
+	 ("C-c n c" . org-roam-capture)
+	 ("C-c n j" . org-roam-dailies-capture-today)
+	 ("C-c n i" . org-roam-node-insert))
+  :config
+  (org-roam-setup))
+
 
 ;; Projects
 (defun go-to-projects ()
@@ -362,6 +378,7 @@
   (interactive)
   (progn (org-agenda nil "a")
 	 (org-agenda-day-view)))
+
 
 
 ;; Bindings

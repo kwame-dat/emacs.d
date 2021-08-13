@@ -142,14 +142,8 @@
 
 
 ;; Task Management & Agenda Views
-(setq org-directory "~/org"
-      org-agenda-files (quote (
-			       "~/org/PTodo.org"
-			       "~/org/STodo.org"
-			       "~/org/joint/JTodo.org"
-			       "~/org/WTodo.org"
-			       "~/org/Gcal.org"
-			       )))
+(setq org-directory "~/org")
+(setq org-agenda-files '("~/org" "~/Nextcloud/Notes/Roam"))
 
 
 ;; Refile targets configuration 
@@ -384,19 +378,21 @@
 ;; Bindings
 (kd/leader-key-def
       ;;; <leader> n --- notes
-  "nf" '(lambda() (interactive) (counsel-find-file "~/org"))
-  "n." '(lambda() (interactive) (counsel-find-file "~/org"))
-  "ni" '(lambda() (interactive) (find-file "~/org/Inbox.org"))
+  "nf" '(lambda() (interactive) (org-roam-node-find))
+  "ng" '(lambda() (interactive) (org-roam-graph))
+  "ni" '(lambda() (interactive) (org-roam-node-insert))
+  "nl" '(lambda() (interactive) (org-roam-buffer-toggle))
+  "nc" '(lambda() (interactive) (org-roam-capture))
+  "nn" '(lambda() (interactive) (org-roam-capture))
+  "nt" '(lambda() (interactive) (org-roam-dailies-capture-today))
   "np" '(lambda() (interactive) (find-file "~/org/PTodo.org"))
   "nw" '(lambda() (interactive) (find-file "~/org/WTodo.org"))
   "ns" '(lambda() (interactive) (find-file "~/org/STodo.org"))
   "nj" '(lambda() (interactive) (find-file "~/org/joint/JTodo.org"))
   "na" 'org-agenda
   "nd" 'kd/day-view
-  "nci" 'org-pomodoro
-  "nco" 'org-pomodoro-clock-break
-  "nn" 'org-capture
-  "nv" 'org-search-view
+  ;; "nci" 'org-pomodoro
+  ;; "nco" 'org-pomodoro-clock-break
   )
 
 (kd/my-local-leader-def 'normal org-mode-map

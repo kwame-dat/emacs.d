@@ -55,7 +55,7 @@
      (python . t)
      (sql . t)
      (ruby . t)
-     ;; (tmux . t)
+     (php . t)
      (sqlite . t)
      (ledger . t)))
 
@@ -143,7 +143,7 @@
 
 ;; Task Management & Agenda Views
 (setq org-directory "~/org")
-(setq org-agenda-files '("~/org" "~/Nextcloud/Notes/Roam"))
+(setq org-agenda-files '("~/org"))
 
 
 ;; Refile targets configuration 

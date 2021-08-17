@@ -3,7 +3,7 @@
 ;;; Code:
 
 (straight-use-package 'doom-themes)
-(load-theme 'doom-tomorrow-night t)
+(load-theme 'doom-palenight t)
 
 (provide 'init-themes)
 ;;; init-themes.el ends here

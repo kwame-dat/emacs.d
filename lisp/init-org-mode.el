@@ -143,7 +143,7 @@
 
 ;; Task Management & Agenda Views
 (setq org-directory "~/org")
-(setq org-agenda-files '("~/org"))
+(setq org-agenda-files '("~/org" "~/org/joint"))
 
 
 ;; Refile targets configuration 

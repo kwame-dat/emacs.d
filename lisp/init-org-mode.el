@@ -187,8 +187,6 @@
 	 (file "~/org/templates/new-project.org"))
 	("w" "workProject" entry (file+headline "~/org/WTodo.org" "1Projects")
 	 (file "~/org/templates/new-project.org"))
-	("m" "MeetingWorkbook" entry (file+headline "~/org/STodo.org" "Life & Ministry Workbook")
-	 (file "~/org/templates/workbook.org"))
 	("s" "Someday" entry (file+headline "~/org/PSomeday.org" "Someday")
 	 "* SOMEDAY %?\n")))
 
@@ -374,7 +372,6 @@
 	 (org-agenda-day-view)))
 
 
-
 ;; Bindings
 (kd/leader-key-def
       ;;; <leader> n --- notes
@@ -383,17 +380,13 @@
   "ni" '(lambda() (interactive) (org-roam-node-insert))
   "nl" '(lambda() (interactive) (org-roam-buffer-toggle))
   "nc" '(lambda() (interactive) (org-roam-capture))
-  "nn" '(lambda() (interactive) (org-roam-capture))
+  "nn" '(lambda() (interactive) (org-capture))
   "nt" '(lambda() (interactive) (org-roam-dailies-capture-today))
   "np" '(lambda() (interactive) (find-file "~/org/PTodo.org"))
   "nw" '(lambda() (interactive) (find-file "~/org/WTodo.org"))
-  "ns" '(lambda() (interactive) (find-file "~/org/STodo.org"))
   "nj" '(lambda() (interactive) (find-file "~/org/joint/JTodo.org"))
   "na" 'org-agenda
-  "nd" 'kd/day-view
-  ;; "nci" 'org-pomodoro
-  ;; "nco" 'org-pomodoro-clock-break
-  )
+  "nd" 'kd/day-view)
 
 (kd/my-local-leader-def 'normal org-mode-map
   "c" 'org-ctrl-c-ctrl-c

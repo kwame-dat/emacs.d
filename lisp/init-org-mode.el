@@ -61,11 +61,6 @@
 
   (push '("conf-unix" . conf-unix) org-src-lang-modes))
 
-;; (use-package org-notify
-;;   :ensure nil
-;;   :after org
-;;   :config (org-notify-start))
-
 (use-package org-pomodoro
   :defer t
   :after org
@@ -275,7 +270,6 @@
 	 ("C-c n i" . org-roam-node-insert))
   :config
   (org-roam-setup))
-
 
 ;; Projects
 (defun go-to-projects ()

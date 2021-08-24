@@ -12,6 +12,7 @@
 	  erc-mode
 	  eshell-mode
 	  gud-mode
+	  org-mode
 	  help-mode
 	  message-mode
 	  shell-mode

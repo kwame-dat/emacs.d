@@ -221,7 +221,7 @@
   :init (add-hook 'org-mode-hook #'toc-org-enable))
 
 ;; Increase the size of various headings
-(set-face-attribute 'org-document-title nil :font "Cantarell" :weight 'bold :height 1.3)
+(set-face-attribute 'org-document-title nil :font "Iosevka Aile" :weight 'bold :height 1.3)
 (dolist (face '((org-level-1 . 1.2)
 		(org-level-2 . 1.1)
 		(org-level-3 . 1.05)
@@ -230,7 +230,7 @@
 		(org-level-6 . 1.1)
 		(org-level-7 . 1.1)
 		(org-level-8 . 1.1)))
-  (set-face-attribute (car face) nil :font "Cantarell" :weight 'medium :height (cdr face)))
+  (set-face-attribute (car face) nil :font "Iosevka Aile" :weight 'medium :height (cdr face)))
 
 ;; Make sure org-indent face is available
 (require 'org-indent)

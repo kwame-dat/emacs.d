@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+(use-package edit-indirect
+  :defer t)
+
 (use-package writeroom-mode
   :defer t
   :config

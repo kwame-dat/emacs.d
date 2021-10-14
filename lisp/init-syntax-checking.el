@@ -17,5 +17,14 @@
   (flycheck-add-next-checker 'lsp 'php-phpcs 'php-md))
 (add-hook 'php-mode-hook #'my-flycheck-setup)
 
+(use-package flycheck-yamllint
+  :ensure t
+  :defer t
+  :init
+  (progn
+    (eval-after-load 'flycheck
+      '(add-hook 'flycheck-mode-hook 'flycheck-yamllint-setup))))
+
+
 (provide 'init-syntax-checking)
 ;;; init-syntax-checking.el ends here

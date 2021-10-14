@@ -3,8 +3,10 @@
 ;;; Code:
 (use-package php-mode
   :defer t
-  :init
-  (setq-default php-mode-coding-style 'psr2))
+  ;; :init
+  ;; (setq-default php-mode-coding-style 'psr2)
+  :config 
+  (setq php-mode-template-compatibility nil))
 
 (use-package phpactor
   :defer t

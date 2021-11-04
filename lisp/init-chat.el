@@ -10,12 +10,12 @@
   (setq slack-prefer-current-team t)
   :config
   (slack-register-team
-   :name "elico-webteam"
+   :name "custom-gateway"
    :default t
    :token (auth-source-pick-first-password
-           :host "elico-webteam.slack.com"
-           :user "tampomah@emporium.co.uk")
-   :subscribed-channels '(elico qa devops standup general ops-issues)
+           :host "custom-gateway.slack.com"
+           :user "tony.ampomah@kornit.com")
+   :subscribed-channels '(architects askme general new-relic random)
    :full-and-display-names t)
 
 

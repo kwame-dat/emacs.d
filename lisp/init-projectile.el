@@ -18,6 +18,11 @@
 					 "~/Repo/3Resources"
 					 "~/Repo/2Areas"
 					 "~/Repo/1Projects"
+					 "~/Work"
+					 "~/Work/platform/application/cppoms/code"
+					 "~/Work/platform/application/distapp2/code"
+					 "~/Work/platform/application/psog/code"
+					 "~/Work/platform/application/psog2/code"
 					 ))
   (setq projectile-completion-system 'ivy)
   (setq projectile-switch-project-action #'projectile-dired)

@@ -80,19 +80,19 @@
      (smtpmail-stream-type starttls)
      (smtpmail-smtp-service 587))
 
-    ("tampomah@emporium.co.uk"
+    ("tony.ampomah@kornit.com"
      (user-full-name  "Tony Ampomah")
      (mu4e-compose-signature . (concat
                                 "Regards\n"
                                 "Tony\n"))
      (mu4e-compose-signature-auto-include t)
-     (mu4e-sent-folder "/tampomah@emporium.co.uk/Sent Items")
-     (mu4e-drafts-folder "/tampomah@emporium.co.uk/Drafts")
-     (mu4e-trash-folder "/tampomah@emporium.co.uk/Deleted Items")
-     (user-mail-address "tampomah@emporium.co.uk")
+     (mu4e-sent-folder "/tony.ampomah@kornit.com/Sent Items")
+     (mu4e-drafts-folder "/tony.ampomah@kornit.com/Drafts")
+     (mu4e-trash-folder "/tony.ampomah@kornit.com/Deleted Items")
+     (user-mail-address "tony.ampomah@kornit.com")
      (smtpmail-default-smtp-server "smtp.office365.com")
      (smtpmail-local-domain "office365.com")
-     (smtpmail-smtp-user "tampomah@emporium.co.uk")
+     (smtpmail-smtp-user "tony.ampomah@kornit.com")
      (smtpmail-smtp-server "smtp.office365.com")
      (smtpmail-stream-type starttls)
      (smtpmail-smtp-service 587))
@@ -134,9 +134,9 @@
                         (mu4e-message-field msg :maildir))
           "/tony@arksolutions.it/4Archives")
 
-         ((string-match "^/tampomah@emporium.co.uk*"
+         ((string-match "^/tony.ampomah@kornit.com*"
                         (mu4e-message-field msg :maildir))
-          "/tampomah@emporium.co.uk/4Archives")
+          "/tony.ampomah@kornit.com/4Archives")
 
          ((string-match "^/tony.ampomah.jw@gmail.com*"
                         (mu4e-message-field msg :maildir))
@@ -156,9 +156,9 @@
                         (mu4e-message-field msg :maildir))
           "/tony@arksolutions.it/Trash")
 
-         ((string-match "^/tampomah@emporium.co.uk*"
+         ((string-match "^/tony.ampomah@kornit.com*"
                         (mu4e-message-field msg :maildir))
-          "/tampomah@emporium.co.uk/Deleted Items")
+          "/tony.ampomah@kornit.com/Deleted Items")
 
          ((string-match "^/tony.ampomah.jw@gmail.com*"
                         (mu4e-message-field msg :maildir))

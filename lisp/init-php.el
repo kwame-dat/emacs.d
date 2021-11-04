@@ -2,17 +2,19 @@
 ;;; Commentary:
 ;;; Code:
 (use-package php-mode
+  :mode "\\.inc\\'"
   :defer t
-  ;; :init
-  ;; (setq-default php-mode-coding-style 'psr2)
-  :config 
+  :hook ((php-mode . rainbow-delimiters-mode))
+  :config
   (setq php-mode-template-compatibility nil))
+
 
 (use-package phpactor
   :defer t
   :commands (phpactor-install-or-update))
 
 (use-package phpunit
+  :after php-mode
   :defer t)
 
 (straight-use-package

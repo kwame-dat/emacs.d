@@ -10,12 +10,10 @@
         flycheck-check-syntax-automatically '(save idle-change mode-enabled)
         flycheck-idle-change-delay 0.2
         flycheck-global-modes '(not org-mode)
-        flycheck-phpcs-standard "PSR12")
+	flycheck-phpcs-standard "PRS2")
   (global-flycheck-mode))
 
-(defun my-flycheck-setup ()
-  (flycheck-add-next-checker 'lsp 'php-phpcs 'php-md))
-(add-hook 'php-mode-hook #'my-flycheck-setup)
+;; (use-package flycheck-phpstan)
 
 (use-package flycheck-yamllint
   :ensure t

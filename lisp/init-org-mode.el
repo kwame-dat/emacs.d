@@ -16,7 +16,6 @@
 (use-package org
   :defer t
   :straight (:type built-in)
-  :ensure org-plus-contrib
   ;; :straight org-plus-contrib
   :hook (org-mode . kd/org-mode-setup)
   :config
@@ -58,9 +57,11 @@
      (ruby . t)
      (php . t)
      (sqlite . t)
-     (ledger . t)))
+     ))
 
   (push '("conf-unix" . conf-unix) org-src-lang-modes))
+
+(use-package org-contrib :after org)
 
 (use-package org-pomodoro
   :defer t
@@ -79,7 +80,7 @@
   :hook (org-mode . org-jira-mode)
   :after org
   :config
-  (setq jiralib-url "https://jira.eandl.co.uk"))
+  (setq jiralib-url ""))
 
 (use-package ox-pandoc
   :after org
@@ -115,6 +116,7 @@
   :defer t)
 
 (use-package evil-org
+  ;; :defer t
   :after org
   :config
   (add-hook 'org-mode-hook 'evil-org-mode)
@@ -122,6 +124,13 @@
 	    (lambda () (evil-org-set-key-theme)))
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
+
+;; Fix evil org issue
+(fset 'evil-redirect-digit-argument 'ignore) ;;# before evil-org loaded
+
+(add-to-list 'evil-digit-bound-motions 'evil-org-beginning-of-line)
+(evil-define-key 'motion 'evil-org-mode
+    (kbd "0") 'evil-org-beginning-of-line)
 
 
 ;; When editing a code snippet, use the current window rather than
@@ -139,7 +148,7 @@
 
 ;; Task Management & Agenda Views
 (setq org-directory "~/org")
-(setq org-agenda-files '("~/org" "~/org/joint"))
+(setq org-agenda-files '("~/org"))
 
 
 ;; Refile targets configuration 
@@ -185,8 +194,6 @@
 	 (file "~/org/templates/new-project.org"))
 	("s" "Someday" entry (file+headline "~/org/PSomeday.org" "Someday")
 	 "* SOMEDAY %?\n")))
-
-
 
 ;; I prefer indented in org mode please.
 (setq org-startup-indented t)

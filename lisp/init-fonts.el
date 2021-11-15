@@ -2,9 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(setq-default line-spacing 0.5)
-(setq kd/default-font "Anonymous Pro")
-(setq kd/default-font-size 14)
+(setq-default line-spacing 0.8)
+(setq kd/default-font "Monolisa")
+(setq kd/default-font-size 12)
 (setq kd/current-font-size kd/default-font-size)
 
 (setq kd/font-change-increment 1.1)
@@ -92,6 +92,27 @@
 
 (use-package unicode-fonts
   :defer t)
+
+
+;; Set the font face based on platform
+(pcase system-type
+  ((or 'gnu/linux 'windows-nt 'cygwin)
+   (set-face-attribute 'default nil
+                       :font "Monolisa"
+                       :weight 'light))
+  ('darwin (set-face-attribute 'default nil :font "Fira Mono")))
+
+;; Set the fixed pitch face
+(set-face-attribute 'fixed-pitch nil
+                    :font "Monolisa"
+                    :weight 'light)
+
+;; Set the variable pitch face
+(set-face-attribute 'variable-pitch nil
+                    :font "Cantarell"
+                    ;; :font "Iosevka Aile"
+                    :weight 'light)
+
 
 (provide 'init-fonts)
 ;;; init-fonts.el ends here

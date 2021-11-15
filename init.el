@@ -10,9 +10,12 @@
 ;;(setq debug-on-error t)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(setq package-enable-at-startup nil)
+(package-initialize)
 
 ;; Native Compilation
 (setq comp-async-report-warnings-errors nil)
+(setq native-comp-async-report-warnings-errors nil)
 
 ;; (require 'init-benchmarking) ;; Measure startup time
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
@@ -71,6 +74,7 @@
 (require 'init-markdown)
 (require 'init-fountain)
 (require 'init-yaml)
+(require 'init-finance)
 
 ;; Tools
 (require 'init-docker)

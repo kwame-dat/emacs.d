@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-
 ;; ESC Cancels All
 (global-set-key (kbd "<escape>") 'keyboard-quit)
 
@@ -98,9 +97,6 @@
 (use-package link-hint
   :ensure t)
 
-
-
-
 ;; Simplify Leader Bindings (general)
 (use-package general
   :config
@@ -135,7 +131,7 @@
 
 (kd/leader-key-def 'normal 'override
   ":"  'eval-expression
-  "<SPC>" 'counsel-projectile-find-file
+  "<SPC>" 'projectile-find-file
   "/"  'swiper
   "x"  'counsel-M-x
   "RET" 'bookmark-jump
@@ -192,10 +188,12 @@
   )
 
 ;; Keybinding Panel (which-key)
+(setq which-key-idle-delay 0.3)
+(setq which-key-side-window-max-height 0.5)
+(setq which-key-popup-type 'minibuffer)
 (use-package which-key
-  :config
-  (setq which-key-idle-delay 0.3)
-  :config (which-key-mode))
+  :config (which-key-mode)
+  (which-key-setup-minibuffer))
 
 ;; Enable keychord bind with (use-package-chords)
 (use-package use-package-chords

@@ -15,7 +15,7 @@
    dired-clean-up-buffers-too t
    dired-recursive-copies 'always
    dired-recursive-deletes 'top
-   dired-listing-switches "-agho --group-directories-first"
+   ;; dired-listing-switches "lhvA"
    dired-omit-verbose nil
    dired-hide-details-hide-symlink-targets nil)
 
@@ -42,10 +42,18 @@
   (use-package dired-collapse
     :defer t)
 
-  (use-package dired-hide-dotfiles
-    :defer t
-    :config
-    (dired-hide-dotfiles-mode))
+  (use-package all-the-icons-dired
+    :hook (dired-mode . all-the-icons-dired-mode))
+
+  ;; (use-package dired-hide-dotfiles
+  ;;   :defer t
+  ;;   :config
+  ;;   (dired-hide-dotfiles-mode))
+
+  ;; (use-package dired-hide-dotfiles
+  ;;   :config
+  ;;   (dired-hide-dotfiles-mode)
+  ;;   (define-key dired-mode-map "." 'dired-hide-dotfiles-mode))
 
   (evil-collection-define-key 'normal 'dired-mode-map
     "." 'dired-hide-dotfiles-mode

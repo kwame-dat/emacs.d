@@ -17,6 +17,9 @@
 ;;   :config
 ;;   (ace-window-display-mode 1))
 
+;; (use-package frames-only-mode
+;;   :config(frames-only-mode))
+
 ;; Window history
 (use-package winner
   :after evil

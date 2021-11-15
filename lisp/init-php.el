@@ -4,14 +4,17 @@
 (use-package php-mode
   :mode "\\.inc\\'"
   :defer t
-  :hook ((php-mode . rainbow-delimiters-mode))
+  :hook (php-mode . rainbow-delimiters-mode)
   :config
   (setq php-mode-template-compatibility nil))
-
 
 (use-package phpactor
   :defer t
   :commands (phpactor-install-or-update))
+
+;; (defun my-flycheck-setup ()
+;;   (flycheck-add-next-checker 'lsp 'php-phpcs 'php-md))
+;; (add-hook 'php-mode-hook #'my-flycheck-setup)
 
 (use-package phpunit
   :after php-mode

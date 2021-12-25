@@ -30,7 +30,7 @@
             (lambda ()
               (interactive)
               ;; (dired-omit-mode 1)
-              ;; (dired-hide-details-mode 1)
+              (dired-hide-details-mode 1)
               (hl-line-mode 1)))
 
   (use-package dired-single
@@ -45,10 +45,10 @@
   (use-package all-the-icons-dired
     :hook (dired-mode . all-the-icons-dired-mode))
 
-  ;; (use-package dired-hide-dotfiles
-  ;;   :defer t
-  ;;   :config
-  ;;   (dired-hide-dotfiles-mode))
+  (use-package dired-hide-dotfiles
+    :demand t
+    :config
+    (dired-hide-dotfiles-mode))
 
   ;; (use-package dired-hide-dotfiles
   ;;   :config
@@ -73,7 +73,6 @@
   :defer t
   :config
   (dired-async-mode 1))
-
 
 (use-package dired-open
   ;; :hook (dired-mode . dired-open-hook)
@@ -100,7 +99,6 @@
           ("webm" . "mpv")
           ("xls" . "gnumeric")
           ("xlsx" . "gnumeric"))))
-
 
 (kd/leader-key-def
     "o-" 'dired-jump

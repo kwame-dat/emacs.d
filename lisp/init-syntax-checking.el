@@ -10,10 +10,10 @@
         flycheck-check-syntax-automatically '(save idle-change mode-enabled)
         flycheck-idle-change-delay 0.2
         flycheck-global-modes '(not org-mode)
-	flycheck-phpcs-standard "PRS2")
+	flycheck-phpcs-standard "PSR12")
   (global-flycheck-mode))
 
-;; (use-package flycheck-phpstan)
+(use-package flycheck-phpstan)
 
 (use-package flycheck-yamllint
   :ensure t
@@ -22,7 +22,6 @@
   (progn
     (eval-after-load 'flycheck
       '(add-hook 'flycheck-mode-hook 'flycheck-yamllint-setup))))
-
 
 (provide 'init-syntax-checking)
 ;;; init-syntax-checking.el ends here

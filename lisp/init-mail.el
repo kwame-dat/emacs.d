@@ -183,5 +183,7 @@
 
 (use-package mu4e-alert)
 
+(use-package notmuch)
+
 (provide 'init-mail)
 ;;; init-mail.el ends here

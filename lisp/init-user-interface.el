@@ -62,5 +62,7 @@
 
 (global-prettify-symbols-mode +1)
 
+(use-package rainbow-delimiters)
+
 (provide 'init-user-interface)
 ;;; init-user-interface.el ends here

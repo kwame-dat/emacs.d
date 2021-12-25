@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (defun my-nov-font-setup ()
-  (face-remap-add-relative 'variable-pitch :family "Iosevka Aile"
+  (face-remap-add-relative 'variable-pitch :family "Cantarell"
 			   :height 1.4))
 ;; Reading EPUB
 (use-package nov

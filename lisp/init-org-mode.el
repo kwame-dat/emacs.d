@@ -128,7 +128,6 @@
 ;; Fix evil org issue
 (fset 'evil-redirect-digit-argument 'ignore) ;;# before evil-org loaded
 
-(add-to-list 'evil-digit-bound-motions 'evil-org-beginning-of-line)
 (evil-define-key 'motion 'evil-org-mode
     (kbd "0") 'evil-org-beginning-of-line)
 

@@ -12,6 +12,7 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (setq package-enable-at-startup nil)
 (package-initialize)
+(setq tramp-histfile-override "/dev/null")
 
 ;; Native Compilation
 (setq comp-async-report-warnings-errors nil)
@@ -61,21 +62,6 @@
 (require 'init-git)
 (require 'init-projectile)
 
-;; Languages
-(require 'init-lsp)
-(require 'init-php)
-(require 'init-web)
-(require 'init-javascript)
-(require 'init-dotenv)
-(require 'init-css)
-(require 'init-haskell)
-(require 'init-restclient)
-(require 'init-csv)
-(require 'init-markdown)
-(require 'init-fountain)
-(require 'init-yaml)
-(require 'init-finance)
-
 ;; Tools
 (require 'init-docker)
 (require 'init-vagrant)
@@ -94,7 +80,20 @@
 (require 'init-colour-highlighting)
 (require 'init-writing)
 
-;; Org Mode
+;; Languages
+(require 'init-lsp)
+(require 'init-php)
+(require 'init-web)
+(require 'init-javascript)
+(require 'init-dotenv)
+(require 'init-css)
+(require 'init-haskell)
+(require 'init-restclient)
+(require 'init-csv)
+(require 'init-markdown)
+(require 'init-fountain)
+(require 'init-yaml)
+(require 'init-finance)
 (require 'init-org-mode)
 
 ;; Applications
@@ -110,12 +109,5 @@
 (require 'init-password-manager)
 (require 'init-reading)
 (require 'init-touch-typing)
-(require 'init-finance)
 
-
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-;; Local Variables:
-;; coding: utf-8
-;; no-byte-compile: t
-;; End:
 ;;; init.el ends here

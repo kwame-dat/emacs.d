@@ -29,7 +29,6 @@
   :config
   (global-evil-mc-mode +1))
 
-
 (use-package evil-multiedit
   :defer t)
 

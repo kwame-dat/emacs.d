@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(setq-default line-spacing 0.8)
 (setq kd/default-font "Operator Mono Book")
 (setq kd/default-font-size 12)
 (setq kd/current-font-size kd/default-font-size)
@@ -51,6 +50,10 @@
 
 (kd/reset-font-size)
 
+(setq-default line-spacing 0.8)
+(set-face-attribute 'default nil :font "Operator Mono Light")
+(set-face-attribute 'fixed-pitch nil :family "Noto Sans" :height 1.0)
+(set-face-attribute 'variable-pitch nil :family "Noto Sans" :height 1.0)
 
 ;; Set the font face based on platform
 (use-package mixed-pitch

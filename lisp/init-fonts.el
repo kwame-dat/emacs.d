@@ -2,8 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(setq kd/default-font "Operator Mono Book")
-(setq kd/default-font-size 12)
+(setq kd/default-font "Cascadia Code")
+(setq kd/default-font-size 14)
 (setq kd/current-font-size kd/default-font-size)
 
 (setq kd/font-change-increment 1.1)
@@ -51,7 +51,7 @@
 (kd/reset-font-size)
 
 (setq-default line-spacing 0.8)
-(set-face-attribute 'default nil :font "Operator Mono Light")
+(set-face-attribute 'default nil :font "Cascadia Code Light")
 (set-face-attribute 'fixed-pitch nil :family "Noto Sans" :height 1.0)
 (set-face-attribute 'variable-pitch nil :family "Noto Sans" :height 1.0)
 

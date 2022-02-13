@@ -33,7 +33,7 @@
   "pp"  'projectile-switch-project
   "pi"  'projectile-invalidate-cache
   "pt"  'projectile-run-vterm
-  "pb"  'projectile-switch-to-buffer
+  "pb"  'persp-counsel-switch-buffer
   "ps"  'counsel-projectile-rg
   "pc"  'projectile-compile-project
   "pB"  'counsel-switch-buffer

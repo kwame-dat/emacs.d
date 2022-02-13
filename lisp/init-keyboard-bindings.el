@@ -139,7 +139,7 @@
   ;;; <leader> b --- buffers
   "b["  #'previous-buffer
   "b]"  #'next-buffer
-  "bb"  #'counsel-switch-buffer
+  "bb"  #'persp-counsel-switch-buffer
   "bB"  #'switch-to-buffer
   "bc"  #'clone-indirect-buffer
   "bC"  #'clone-indirect-buffer-other-window

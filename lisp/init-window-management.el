@@ -8,18 +8,6 @@
   :config
   (default-text-scale-mode))
 
-;; (use-package ace-window
-;;   :bind (("M-o" . ace-window))
-;;   :custom
-;;   (aw-scope 'frame)
-;;   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-;;   (aw-minibuffer-flag t)
-;;   :config
-;;   (ace-window-display-mode 1))
-
-;; (use-package frames-only-mode
-;;   :config(frames-only-mode))
-
 ;; Window history
 (use-package winner
   :after evil

@@ -51,6 +51,7 @@
   :ensure t
   :config
   (evil-mode 1)
+  ;; (define-key evil-insert-state-map "jj" 'evil-normal-state)
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
   (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
 
@@ -141,6 +142,7 @@
   "b]"  #'next-buffer
   "bb"  #'persp-counsel-switch-buffer
   "bB"  #'switch-to-buffer
+  "be" #'eval-buffer
   "bc"  #'clone-indirect-buffer
   "bC"  #'clone-indirect-buffer-other-window
   "bk"  #'kill-current-buffer

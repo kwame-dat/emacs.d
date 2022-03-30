@@ -10,6 +10,7 @@
 
 (kd/leader-key-def
   "d"  '(:ignore t :which-key "docker")
+  "dd"  'docker
   "di" 'docker-images
   "dc" 'docker-containers
   "dC" 'docker-compose

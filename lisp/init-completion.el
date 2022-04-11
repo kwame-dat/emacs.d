@@ -75,6 +75,7 @@
          ("C-r" . 'counsel-minibuffer-history))
   :custom
   (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
+  :demand t
   :config
   (setq ivy-initial-inputs-alist nil)) ;; Don't start searches with ^
 

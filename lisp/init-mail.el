@@ -79,23 +79,7 @@
      (smtpmail-smtp-server "smtp.gmail.com")
      (smtpmail-stream-type starttls)
      (smtpmail-smtp-service 587))
-
-    ("tony.ampomah@kornit.com"
-     (user-full-name  "Tony Ampomah")
-     (mu4e-compose-signature . (concat
-                                "Regards\n"
-                                "Tony\n"))
-     (mu4e-compose-signature-auto-include t)
-     (mu4e-sent-folder "/tony.ampomah@kornit.com/Sent Items")
-     (mu4e-drafts-folder "/tony.ampomah@kornit.com/Drafts")
-     (mu4e-trash-folder "/tony.ampomah@kornit.com/Deleted Items")
-     (user-mail-address "tony.ampomah@kornit.com")
-     (smtpmail-default-smtp-server "smtp.office365.com")
-     (smtpmail-local-domain "office365.com")
-     (smtpmail-smtp-user "tony.ampomah@kornit.com")
-     (smtpmail-smtp-server "smtp.office365.com")
-     (smtpmail-stream-type starttls)
-     (smtpmail-smtp-service 587))
+    
     ))
 
 ;; Whenever a new mail is to be composed, change all relevant
@@ -134,10 +118,6 @@
                         (mu4e-message-field msg :maildir))
           "/tony@arksolutions.it/4Archives")
 
-         ((string-match "^/tony.ampomah@kornit.com*"
-                        (mu4e-message-field msg :maildir))
-          "/tony.ampomah@kornit.com/4Archives")
-
          ((string-match "^/tony.ampomah.jw@gmail.com*"
                         (mu4e-message-field msg :maildir))
           "/tony.ampomah.jw@gmail.com/4Archives")
@@ -155,10 +135,6 @@
          ((string-match "^/tony@arksolutions.it.*"
                         (mu4e-message-field msg :maildir))
           "/tony@arksolutions.it/Trash")
-
-         ((string-match "^/tony.ampomah@kornit.com*"
-                        (mu4e-message-field msg :maildir))
-          "/tony.ampomah@kornit.com/Deleted Items")
 
          ((string-match "^/tony.ampomah.jw@gmail.com*"
                         (mu4e-message-field msg :maildir))

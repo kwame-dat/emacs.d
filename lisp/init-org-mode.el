@@ -4,6 +4,7 @@
 
 (setq-default fill-column 80)
 
+
 ;; Turn on indentation and auto-fill mode for Org files
 (defun kd/org-mode-setup ()
   (org-indent-mode)
@@ -21,12 +22,13 @@
   :config
   (setq org-ellipsis " ⤵"
 	org-hide-emphasis-markers t
+	org-agenda-archives-mode t
 	org-src-fontify-natively t
 	org-src-tab-acts-natively t
 	org-edit-src-content-indentation 2
 	org-hide-block-startup nil
 	org-src-preserve-indentation nil
-	org-agenda-skip-scheduled-if-done t
+	;; org-agenda-skip-scheduled-if-done t
 	org-startup-folded t
 	org-cycle-separator-lines 2)
 

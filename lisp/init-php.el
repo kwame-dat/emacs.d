@@ -23,8 +23,8 @@
   :after php-mode
   :defer t)
 
-(straight-use-package
- '(el-patch :type git :host github :repo "stardiviner/ob-php"))
+(use-package ob-php
+  :defer t)
 
 (use-package php-cs-fixer
   :defer t)

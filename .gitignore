@@ -11,3 +11,5 @@
 !snippets
 /straight
 /eln-cache/
+/lsp-cache/
+/var/

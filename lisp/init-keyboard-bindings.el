@@ -83,12 +83,6 @@
   :config
   (global-evil-surround-mode 1))
 
-(use-package undo-tree
-  :diminish
-  :demand t
-  :init
-  (global-undo-tree-mode 1))
-
 (use-package undo-fu
   :demand t)
 

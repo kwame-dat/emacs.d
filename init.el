@@ -102,7 +102,6 @@
 (require 'init-calendar)
 (require 'init-alert)
 (require 'init-chat)
-(require 'init-music)
 (require 'init-mail)
 (require 'init-eshell)
 (require 'init-terminal)

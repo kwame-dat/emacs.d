@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 (use-package perspective
+  :custom
+  (persp-mode-prefix-key (kbd "C-c M-p"))
   :config
   (persp-mode))
 

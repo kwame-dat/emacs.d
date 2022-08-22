@@ -106,5 +106,7 @@
      (concat "alacritty --working-directory  "workdir) nil 0)))
 
 
+(straight-use-package 'ob-tmux)
+
 (provide 'init-terminal)
 ;;; init-terminal.el ends here

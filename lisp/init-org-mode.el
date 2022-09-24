@@ -6,7 +6,7 @@
 
 
 ;; Turn on indentation and auto-fill mode for Org files
-(defun kd/GTD-mode-setup ()
+(defun kd/org-mode-setup ()
   (org-indent-mode)
   (variable-pitch-mode 1)
   (auto-fill-mode 1)
@@ -18,7 +18,7 @@
   :defer t
   :straight (:type built-in)
   ;; :straight org-plus-contrib
-  :hook (org-mode . kd/GTD-mode-setup)
+  :hook (org-mode . kd/org-mode-setup)
   :config
   (setq org-ellipsis " ⤵"
 	org-hide-emphasis-markers t
@@ -172,8 +172,8 @@
 
 
 ;; Task Management & Agenda Views
-(setq org-directory "~/GTD")
-(setq org-agenda-files '("~/GTD"))
+(setq org-directory "~/org")
+(setq org-agenda-files '("~/org"))
 
 
 ;; Refile targets configuration 
@@ -209,15 +209,15 @@
 
 (setq org-capture-templates
       '(
-	("i" "Inbox" entry (file "~/GTD/Inbox.org")
+	("i" "Inbox" entry (file "~/org/Inbox.org")
 	 "* TODO %?\n %i\n")
-	("e" "Email" entry (file+headline "~/GTD/Inbox.org" "Emails")
+	("e" "Email" entry (file+headline "~/org/Inbox.org" "Emails")
 	 "* TODO [#A] Process Email %:fromname on %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n:PROPERTIES:\n:CREATED: %U\n:END:\n %a" :immediate-finish t :prepend t)
-	("p" "Project" entry (file+headline "~/GTD/PTodo.org" "1Projects")
-	 (file "~/GTD/templates/new-project.org"))
-	("w" "workProject" entry (file+headline "~/GTD/WTodo.org" "1Projects")
-	 (file "~/GTD/templates/new-project.org"))
-	("s" "Someday" entry (file+headline "~/GTD/PSomeday.org" "Someday")
+	("p" "Project" entry (file+headline "~/org/PTodo.org" "1Projects")
+	 (file "~/org/templates/new-project.org"))
+	("w" "workProject" entry (file+headline "~/org/WTodo.org" "1Projects")
+	 (file "~/org/templates/new-project.org"))
+	("s" "Someday" entry (file+headline "~/org/PSomeday.org" "Someday")
 	 "* SOMEDAY %?\n")))
 
 ;; I prefer indented in org mode please.
@@ -284,7 +284,7 @@
 (set-face-attribute 'org-column-title nil :background nil)
 
 
-;; Organisation (GTD and PARA)
+;; Organisation (org and PARA)
 ;; A project is “any outcome that will
 ;; take more than one action step to complete.” As a result of
 ;; implementing Tiago Forte’s “PARA” system, I can ensure that I
@@ -294,7 +294,7 @@
   :init
   (setq org-roam-v2-ack t)
   :custom
-  (org-roam-directory "~/Notes")
+  (org-roam-directory "~/org/Notes")
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
 	 ("C-c n g" . org-roam-graph)
@@ -307,7 +307,7 @@
 ;; Projects
 (defun go-to-projects ()
   (interactive)
-  (find-file "~/GTD/PTodo.org")
+  (find-file "~/org/PTodo.org")
   (widen)
   (beginning-of-buffer)
   (re-search-forward "* Projects")
@@ -337,7 +337,7 @@
 ;; Areas
 (defun go-to-areas ()
   (interactive)
-  (find-file "~/GTD/PTodo.org")
+  (find-file "~/org/PTodo.org")
   (widen)
   (beginning-of-buffer)
   (re-search-forward "* Areas")
@@ -354,7 +354,7 @@
 (defun my-new-daily-review ()
   (interactive)
   (let ((org-capture-templates '(("d" "Review: Daily Review" entry (file+olp+datetree "/tmp/reviews.org")
-				  (file "~/GTD/reviews/daily-review-template.org")))))
+				  (file "~/org/reviews/daily-review-template.org")))))
     (progn
       (org-capture nil "d")
       (org-capture-finalize t)
@@ -366,7 +366,7 @@
 (defun my-new-weekly-review ()
   (interactive)
   (let ((org-capture-templates '(("w" "Review: Weekly Review" entry (file+olp+datetree "/tmp/reviews.org")
-				  (file "~/GTD/reviews/weekly-review-template.org")))))
+				  (file "~/org/reviews/weekly-review-template.org")))))
     (progn
       (org-capture nil "w")
       (org-capture-finalize t)
@@ -378,7 +378,7 @@
 (defun my-new-monthly-review ()
   (interactive)
   (let ((org-capture-templates '(("m" "Review: Monthly Review" entry (file+olp+datetree "/tmp/reviews.org")
-				  (file "~/GTD/reviews/monthly-review-template.org")))))
+				  (file "~/org/reviews/monthly-review-template.org")))))
     (progn
       (org-capture nil "m")
       (org-capture-finalize t)
@@ -408,9 +408,9 @@
   "nc" '(lambda() (interactive) (org-roam-capture))
   "nn" '(lambda() (interactive) (org-capture))
   "nt" '(lambda() (interactive) (org-roam-dailies-capture-today))
-  "np" '(lambda() (interactive) (find-file "~/GTD/PTodo.org"))
-  "nw" '(lambda() (interactive) (find-file "~/GTD/WTodo.org"))
-  "nj" '(lambda() (interactive) (find-file "~/GTD/joint/JTodo.org"))
+  "np" '(lambda() (interactive) (find-file "~/org/PTodo.org"))
+  "nw" '(lambda() (interactive) (find-file "~/org/WTodo.org"))
+  "nj" '(lambda() (interactive) (find-file "~/org/joint/JTodo.org"))
   "na" 'org-agenda
   "nd" 'kd/day-view)
 

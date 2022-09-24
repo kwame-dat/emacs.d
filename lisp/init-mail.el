@@ -13,9 +13,9 @@
 
 ;; Default account on startup
 (setq user-full-name  "Tony Ampomah"
-      mu4e-sent-folder "/tony@arksolutions.it/Sent"
-      mu4e-drafts-folder "/tony@arksolutions.it/Drafts"
-      mu4e-trash-folder "/tony@arksolutions.it/Trash")
+      mu4e-sent-folder "/tony@arksolutions.it/[Gmail]/Sent Mail"
+      mu4e-drafts-folder "/tony@arksolutions.it/[Gmail]/Drafts"
+      mu4e-trash-folder "/tony@arksolutions.it/[Gmail]/Bin")
 
 ;; This is set to 't' to avoid mail syncing issues when using mbsync
 (setq mu4e-change-filenames-when-moving t)
@@ -52,9 +52,9 @@
      (user-full-name  "Tony Ampomah")
      (mu4e-compose-signature . (concat "Many thanks\n" "Tony\n"))
      (mu4e-compose-signature-auto-include t)
-     (mu4e-sent-folder "/tony@arksolutions.it/Sent")
-     (mu4e-drafts-folder "/tony@arksolutions.it/Drafts")
-     (mu4e-trash-folder "/tony@arksolutions.it/Trash")
+     (mu4e-sent-folder "/tony@arksolutions.it/[Gmail]/Sent Mail")
+     (mu4e-drafts-folder "/tony@arksolutions.it/[Gmail]/Drafts")
+     (mu4e-trash-folder "/tony@arksolutions.it/[Gmail]/Bin")
      (user-mail-address "tony@arksolutions.it")
      (smtpmail-default-smtp-server "smtp.zoho.com")
      (smtpmail-local-domain "zoho.com")
@@ -69,9 +69,9 @@
                                 "Warm love\n"
                                 "Tony\n"))
      (mu4e-compose-signature-auto-include t)
-     (mu4e-sent-folder "/tony.ampomah.jw@gmail.com/[Gmail].Sent Mail")
-     (mu4e-drafts-folder "/tony.ampomah.jw@gmail.com/[Gmail].Drafts")
-     (mu4e-trash-folder "/tony.ampomah.jw@gmail.com/[Gmail].Trash")
+     (mu4e-sent-folder "/tony.ampomah.jw@gmail.com/[Gmail]/Sent Mail")
+     (mu4e-drafts-folder "/tony.ampomah.jw@gmail.com/[Gmail]/Drafts")
+     (mu4e-trash-folder "/tony.ampomah.jw@gmail.com/[Gmail]/Trash")
      (user-mail-address "tony.ampomah.jw@gmail")
      (smtpmail-default-smtp-server "smtp.gmail.com")
      (smtpmail-local-domain "gmail.com")
@@ -134,15 +134,15 @@
         (cond
          ((string-match "^/tony@arksolutions.it.*"
                         (mu4e-message-field msg :maildir))
-          "/tony@arksolutions.it/Trash")
+          "/tony@arksolutions.it/[Gmail]/Bin")
 
          ((string-match "^/tony.ampomah.jw@gmail.com*"
                         (mu4e-message-field msg :maildir))
-          "/tony.ampomah.jw@gmail.com/[Gmail].Trash")
+          "/tony.ampomah.jw@gmail.com/[Gmail]/Trash")
 
          ((string-match "^/itechytony@gmail.com.*"
                         (mu4e-message-field msg :maildir))
-          "/itechytony@gmail.com/[Gmail].Trash")
+          "/itechytony@gmail.com/[Gmail]/Trash")
 
          ;; everything else goes to /archive
          (t  "/Trash"))))

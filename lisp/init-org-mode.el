@@ -304,6 +304,8 @@
   :config
   (org-roam-setup))
 
+(use-package ox-reveal)
+
 ;; Projects
 (defun go-to-projects ()
   (interactive)

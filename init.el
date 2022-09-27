@@ -34,6 +34,7 @@
 
 ;; Bootstrap config
 (require 'init-package-management)
+(require 'init-exec-path-from-shell)
 (require 'init-directory-clean)
 (require 'init-keyboard-bindings)
 

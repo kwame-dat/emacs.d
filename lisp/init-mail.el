@@ -56,10 +56,10 @@
      (mu4e-drafts-folder "/tony@arksolutions.it/[Gmail]/Drafts")
      (mu4e-trash-folder "/tony@arksolutions.it/[Gmail]/Bin")
      (user-mail-address "tony@arksolutions.it")
-     (smtpmail-default-smtp-server "smtp.zoho.com")
-     (smtpmail-local-domain "zoho.com")
+     (smtpmail-default-smtp-server "smtp.gmail.com")
+     (smtpmail-local-domain "gmail.com")
      (smtpmail-smtp-user "tony@arksolutions.it")
-     (smtpmail-smtp-server "smtp.zoho.com")
+     (smtpmail-smtp-server "smtp.gmail.com")
      (smtpmail-stream-type starttls)
      (smtpmail-smtp-service 587))
 

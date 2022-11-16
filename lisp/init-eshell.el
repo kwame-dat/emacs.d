@@ -1,13 +1,6 @@
 ;;; init-eshell.el --- eshell -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
-(use-package exec-path-from-shell
-  :defer t
-  :demand t
-  :init
-  (setq exec-path-from-shell-check-startup-files nil))
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
 
 (defun efs/configure-eshell ()
   ;; Save command history when commands are entered

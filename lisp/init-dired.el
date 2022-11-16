@@ -33,6 +33,9 @@
               (dired-hide-details-mode 1)
               (hl-line-mode 1)))
 
+  (if (eq system-type 'darwin)
+      (setq trash-directory "~/.Trash"))
+
   (use-package dired-single
     :defer t)
 

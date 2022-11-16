@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (setq-default line-spacing 0.8)
-(set-face-attribute 'default nil :font "Cascadia Code Light 14")
+(set-face-attribute 'default nil :font "JetBrains Mono 14")
 (set-face-attribute 'fixed-pitch nil :family "Noto Sans" :height 1.0)
 (set-face-attribute 'variable-pitch nil :family "Noto Sans" :height 1.0)
 
@@ -20,7 +20,7 @@
 ;;   ;; Enable traditional ligature support in eww-mode, if the
 ;;   ;; `variable-pitch' face supports it
 ;;   (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
-;;   ;; Enable all Cascadia Code ligatures in programming modes
+;;   ;; Enable all JetBrains Mono ligatures in programming modes
 ;;   (ligature-set-ligatures 'prog-mode '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
 ;;                                        ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
 ;;                                        "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"

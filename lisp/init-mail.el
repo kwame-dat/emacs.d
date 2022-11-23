@@ -2,6 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
+
+;; (if (eq system-type 'gnu/linux)
+;; )
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu/mu4e")
+(setq mu4e-mu-binary "/usr/local/bin/mu")
 (require 'mu4e)
 
 (require 'org-mu4e)

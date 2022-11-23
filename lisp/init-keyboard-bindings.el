@@ -17,7 +17,7 @@
 (global-set-key [(super y)] 'redo)
 (global-set-key (kbd "s-/") 'comment-line)
 (global-set-key (kbd "s-f") 'swiper)
-(global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
+(global-set-key (kbd "M-3") #'(lambda () (interactive) (insert "#")))
 (global-set-key (kbd "s-o") (kbd "C-x o"))
 (global-set-key (kbd "<escape>")      'keyboard-escape-quit)
 (global-set-key (kbd "s-w") (kbd "C-x 0"))

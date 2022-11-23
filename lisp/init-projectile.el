@@ -6,21 +6,16 @@
   :defer t
   :config
   (setq projectile-project-search-path '(
-					 "~/Documents/Work/3Resources"
-					 "~/Documents/Work/2Areas"
-					 "~/Documents/Work/1Projects"
-					 "~/Documents/Joint/3Resources"
-					 "~/Documents/Joint/2Areas"
-					 "~/Documents/Joint/1Projects"
-					 "~/Documents/Personal/3Resources"
-					 "~/Documents/Personal/2Areas"
-					 "~/Documents/Personal/1Projects"
-					 "~/RadiusRepo/3Resources"
-					 "~/RadiusRepo/2Areas"
-					 "~/RadiusRepo/1Projects"
-					 "~/Repo/3Resources"
+					 "~/Documents/2Areas"
+					 "~/Documents/1Projects"
+					 "~/Nextcloud/Documents/Joint/2Areas"
+					 "~/Nextcloud/Documents/Joint/1Projects"
+					 "~/Nextcloud/Documents/Personal/2Areas"
+					 "~/Nextcloud/Documents/Personal/1Projects"
 					 "~/Repo/2Areas"
 					 "~/Repo/1Projects"
+					 "~/RadiusRepo/2Areas"
+					 "~/RadiusRepo/1Projects"
 					 ))
   (setq projectile-completion-system 'ivy)
   (setq projectile-switch-project-action #'projectile-dired)

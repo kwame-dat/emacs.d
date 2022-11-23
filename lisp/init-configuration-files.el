@@ -9,7 +9,6 @@
   (interactive)
   (find-file "/sudo:root@localhost:/etc/hosts"))
 
-
 (defun kd/visit-ssh-config ()
   (interactive)
   (counsel-find-file "~/.ssh"))
@@ -21,6 +20,10 @@
 (defun kd/find-in-notes ()
   (interactive)
   (counsel-find-file "~/org"))
+
+(defun kd/find-home-directory ()
+  (interactive)
+  (find-file "~/"))
 
 (defun kd/sudo-find-file (file-name)
   "Like find file, but opens the file as root."
@@ -54,22 +57,22 @@
   "fvp" 'kd/visit-emacs-config
   "fdd" '(lambda() (interactive) (find-file "~/Downloads"))
   "fdD" '(lambda() (interactive) (find-file "~/Documents"))
-  "f1"  '(lambda() (interactive) (find-file "~/Repo/Personal/1Projects"))
-  "f2"  '(lambda() (interactive) (find-file "~/Repo/Personal/2Areas"))
-  "f3"  '(lambda() (interactive) (find-file "~/Repo/Personal/3Resources"))
-  "f4"  '(lambda() (interactive) (find-file "~/Repo/Personal/4Archives"))
-  "fw1"  '(lambda() (interactive) (find-file "~/Repo/Work/1Projects"))
-  "fw2"  '(lambda() (interactive) (find-file "~/Repo/Work/2Areas"))
-  "fw3"  '(lambda() (interactive) (find-file "~/Repo/Work/3Resources"))
-  "fw4"  '(lambda() (interactive) (find-file "~/Repo/Work/4Archives"))
+  "f1"  '(lambda() (interactive) (find-file "~/Repo/1Projects"))
+  "f2"  '(lambda() (interactive) (find-file "~/Repo/2Areas"))
+  "f3"  '(lambda() (interactive) (find-file "~/Repo/3Resources"))
+  "f4"  '(lambda() (interactive) (find-file "~/Repo/4Archives"))
+  "fw1"  '(lambda() (interactive) (find-file "~/RadiusRepo/1Projects"))
+  "fw2"  '(lambda() (interactive) (find-file "~/RadiusRepo/2Areas"))
+  "fw3"  '(lambda() (interactive) (find-file "~/RadiusRepo/3Resources"))
+  "fw4"  '(lambda() (interactive) (find-file "~/RadiusRepo/4Archives"))
   "fd1" '(lambda() (interactive) (find-file "~/Nextcloud/Documents/Personal/1Projects"))
   "fd2" '(lambda() (interactive) (find-file "~/Nextcloud/Documents/Personal/2Areas"))
   "fd3" '(lambda() (interactive) (find-file "~/Nextcloud/Documents/Personal/3Resources"))
   "fd4" '(lambda() (interactive) (find-file "~/Nextcloud/Documents/Personal/4Archives"))
-  "fdw1" '(lambda() (interactive) (find-file "~/Nextcloud/Documents/Work/1Projects"))
-  "fdw2" '(lambda() (interactive) (find-file "~/Nextcloud/Documents/Work/2Areas"))
-  "fdw3" '(lambda() (interactive) (find-file "~/Nextcloud/Documents/Work/3Resources"))
-  "fdw4" '(lambda() (interactive) (find-file "~/Nextcloud/Documents/Work/4Archives"))
+  "fdw1" '(lambda() (interactive) (find-file "~/Documents/1Projects"))
+  "fdw2" '(lambda() (interactive) (find-file "~/Documents/2Areas"))
+  "fdw3" '(lambda() (interactive) (find-file "~/Documents/3Resources"))
+  "fdw4" '(lambda() (interactive) (find-file "~/Documents/4Archives"))
 
   "fD"  'kd/delete-this-file
   "ff"  'counsel-find-file

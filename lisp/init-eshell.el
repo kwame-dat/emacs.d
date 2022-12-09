@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(defun efs/configure-eshell ()
+(defun kd/configure-eshell ()
   ;; Save command history when commands are entered
   (add-hook 'eshell-pre-command-hook 'eshell-save-some-history)
 
@@ -25,23 +25,33 @@
    eshell-buffer-maximum-lines 10000
    eshell-scroll-to-bottom-on-input t))
 
-(use-package eshell-git-prompt
-  :defer t)
-
-(use-package eshell-toggle
-  :defer t)
 
 (use-package eshell
-  :defer t
-  :hook (eshell-first-time-mode . efs/configure-eshell)
+  :hook (eshell-first-time-mode . kd/configure-eshell)
   :config
 
   (with-eval-after-load 'esh-opt
     (setq eshell-destroy-buffer-when-process-dies t)
-    (setq eshell-visual-commands '("htop" "zsh" "vim")))
+    (setq eshell-visual-commands '("htop" "zsh" "vim"))))
 
-  (eshell-git-prompt-use-theme 'simple))
 
+(use-package eshell-git-prompt
+  :config
+  (eshell-git-prompt-use-theme 'powerline))
+
+(use-package eshell-toggle)
+
+;; (add-hook
+;;  'eshell-mode-hook
+;;  (lambda ()
+;;    (setq pcomplete-cycle-completions nil)))
+
+
+(use-package fish-completion)
+
+(when (and (executable-find "fish")
+           (require 'fish-completion nil t))
+  (global-fish-completion-mode))
 
 (provide 'init-eshell)
 ;;; init-eshell.el ends here

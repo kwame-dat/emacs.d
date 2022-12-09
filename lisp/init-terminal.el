@@ -96,7 +96,6 @@
   (evil-define-key 'normal vterm-mode-map (kbd "o")        #'evil-insert-resume)
   (evil-define-key 'normal vterm-mode-map (kbd "<return>") #'evil-insert-resume))
 
-
 (defun open-terminal-in-projectile-root ()
   (interactive)
   (let ((workdir (if (projectile-project-root)

@@ -108,6 +108,6 @@
 (require 'init-password-manager)
 (require 'init-reading)
 (require 'init-touch-typing)
-;; (require 'init-mail)
+(require 'init-mail)
 
 ;;; init.el ends here

@@ -103,11 +103,11 @@
 (require 'init-calendar)
 (require 'init-alert)
 (require 'init-chat)
-(require 'init-mail)
 (require 'init-eshell)
 (require 'init-terminal)
 (require 'init-password-manager)
 (require 'init-reading)
 (require 'init-touch-typing)
+;; (require 'init-mail)
 
 ;;; init.el ends here

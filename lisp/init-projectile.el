@@ -12,8 +12,10 @@
 					 "~/Nextcloud/Documents/Joint/1Projects"
 					 "~/Nextcloud/Documents/Personal/2Areas"
 					 "~/Nextcloud/Documents/Personal/1Projects"
+					 "~/Repo/3Resources"
 					 "~/Repo/2Areas"
 					 "~/Repo/1Projects"
+					 "~/RadiusRepo/3Resources"
 					 "~/RadiusRepo/2Areas"
 					 "~/RadiusRepo/1Projects"
 					 ))

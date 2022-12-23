@@ -173,7 +173,7 @@
   "r" 'counsel-imenu
 
   ;;; <leader> o --- open application
-  "oc" 'cfw:open-org-calendar
+  "oc" 'calendar
   "om" 'mu4e
   "od"  'docker
   "op"  'pass

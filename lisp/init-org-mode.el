@@ -173,7 +173,12 @@
 
 ;; Task Management & Agenda Views
 (setq org-directory "~/org")
-(setq org-agenda-files '("~/org"))
+(setq org-agenda-files '(
+			 "~/org/PTodo.org"
+			 "~/org/WTodo.org"
+			 "~/org/Habits.org"
+			 "~/org/Inbox.org"
+			 ))
 
 
 ;; Refile targets configuration 
@@ -418,6 +423,7 @@
 
 (kd/my-local-leader-def 'normal org-mode-map
   "c" 'org-ctrl-c-ctrl-c
+  "o" 'org-open-at-point
   "t" 'org-todo
   "s" 'org-schedule
   "d" 'org-deadline
@@ -426,6 +432,13 @@
   "n" 'org-narrow-to-element
   "w" 'widen
   "r" 'org-refile)
+
+(kd/my-local-leader-def 'normal org-agenda-mode-map
+  :prefix "C-c"
+  "vd" 'org-agenda-day-view
+  "vw" 'org-agenda-week-view
+  "vm" 'org-agenda-month-view
+  "vy" 'org-agenda-year-view)
 
 (provide 'init-org-mode)
 ;;; init-org-mode.el ends here

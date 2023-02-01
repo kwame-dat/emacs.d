@@ -1,6 +1,9 @@
 ;;; init-web.el --- Web Mode -*- lexical-binding: t -*-
 ;;; Commentary: For HTML, Templates like blade etc
 ;;; Code:
+
+(use-package emmet-mode)
+
 (use-package web-mode
   :defer t
   :mode "\\(?:\\(?:\\.\\(?:html\\|twig\\)\\)\\)\\'"
@@ -29,7 +32,7 @@
               (setq web-mode-style-padding 2)
               (yas-minor-mode t)
               (emmet-mode)
-              (flycheck-add-mode 'html-tidy 'web-mode)
+              ;; (flycheck-add-mode 'html-tidy 'web-mode)
               (flycheck-mode)))
 
   (add-hook 'web-mode-before-auto-complete-hooks
@@ -55,6 +58,9 @@
 
 (use-package web-beautify
   :defer t)
+
+(straight-use-package
+ '(lsp-tailwindcss :type git :host github :repo "merrickluo/lsp-tailwindcss"))
 
 (provide 'init-web)
 ;;; init-web.el ends here

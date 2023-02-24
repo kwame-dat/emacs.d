@@ -2,8 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+(straight-use-package 'doom-themes)
 (straight-use-package 'modus-themes)
-;; (straight-use-package 'doom-themes)
 
 ;; mode-line
 (setq modus-themes-mode-line '(accented borderless padded))
@@ -14,9 +14,9 @@
 (setq modus-themes-italic-constructs t)
 (setq modus-themes-paren-match '(bold intense))
 ;; (load-theme 'modus-operandi t)
-(load-theme 'modus-vivendi t)
+;; (load-theme 'modus-vivendi t)
 
-;; (load-theme 'doom-tomorrow-night t)
+(load-theme 'doom-one t)
 
 (provide 'init-themes)
 ;;; init-themes.el ends here

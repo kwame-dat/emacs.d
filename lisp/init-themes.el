@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(straight-use-package 'doom-themes)
 (straight-use-package 'modus-themes)
 
 ;; mode-line
@@ -12,11 +11,10 @@
 
 (setq modus-themes-bold-constructs t)
 (setq modus-themes-italic-constructs t)
+(setq modus-themes-variable-pitch-ui t)
+(setq modus-themes--weight-widget 'light)
 (setq modus-themes-paren-match '(bold intense))
-;; (load-theme 'modus-operandi t)
-;; (load-theme 'modus-vivendi t)
-
-(load-theme 'doom-one t)
+(load-theme 'modus-vivendi t)
 
 (provide 'init-themes)
 ;;; init-themes.el ends here

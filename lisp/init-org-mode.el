@@ -214,13 +214,15 @@
 
 (setq org-capture-templates
       '(
-	("i" "Inbox" entry (file "~/org/Inbox.org")
+	("i" "Inbox Personal" entry (file "~/org/Inbox.org")
+	 "* TODO %?\n %i\n")
+	("w" "Inbox Work" entry (file "~/org/WInbox.org")
 	 "* TODO %?\n %i\n")
 	("e" "Email" entry (file+headline "~/org/Inbox.org" "Emails")
 	 "* TODO [#A] Process Email %:fromname on %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n:PROPERTIES:\n:CREATED: %U\n:END:\n %a" :immediate-finish t :prepend t)
-	("p" "Project" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("p" "Project Personal" entry (file+headline "~/org/PTodo.org" "1Projects")
 	 (file "~/org/templates/new-project.org"))
-	("w" "workProject" entry (file+headline "~/org/WTodo.org" "1Projects")
+	("r" "Project Work" entry (file+headline "~/org/WTodo.org" "1Projects")
 	 (file "~/org/templates/new-project.org"))
 	("s" "Someday" entry (file+headline "~/org/PSomeday.org" "Someday")
 	 "* SOMEDAY %?\n")))

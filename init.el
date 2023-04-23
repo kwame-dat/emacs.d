@@ -96,6 +96,7 @@
 (require 'init-yaml)
 (require 'init-finance)
 (require 'init-org-mode)
+(require 'init-diagrams)
 
 ;; Applications
 (kd/leader-key-def

@@ -4,7 +4,6 @@
 
 (setq-default fill-column 80)
 
-
 ;; Turn on indentation and auto-fill mode for Org files
 (defun kd/org-mode-setup ()
   (org-indent-mode)
@@ -58,6 +57,8 @@
      (sql . t)
      (ruby . t)
      (php . t)
+     (mermaid . t)
+     (scheme . t)
      (sqlite . t)
      ))
 
@@ -118,6 +119,10 @@
   :defer t)
 
 (use-package ob-async
+  :after org
+  :defer t)
+
+(use-package ob-mermaid
   :after org
   :defer t)
 
@@ -223,7 +228,7 @@
 	("p" "Project Personal" entry (file+headline "~/org/PTodo.org" "1Projects")
 	 (file "~/org/templates/new-project.org"))
 	("r" "Project Work" entry (file+headline "~/org/WTodo.org" "1Projects")
-	 (file "~/org/templates/new-project.org"))
+	 (file "~/org/templates/new-work-project.org"))
 	("s" "Someday" entry (file+headline "~/org/PSomeday.org" "Someday")
 	 "* SOMEDAY %?\n")))
 

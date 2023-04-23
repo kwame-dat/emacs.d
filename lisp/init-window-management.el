@@ -8,15 +8,6 @@
   :config
   (default-text-scale-mode))
 
-(use-package shackle
-  :config
-  (setq shackle-rules '(
-			(compilation-mode :noselect t :popup t :align below :size 0.4)
-			("\\`\\*magit.*?\\*\\'" :regexp t :select t :align below :popup t :size 0.4)
-			)
-	shackle-default-rule '(:select t))
-  (shackle-mode))
-
 ;; Window history
 (use-package winner
   :after evil

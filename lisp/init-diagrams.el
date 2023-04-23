@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package mermaid)
+(use-package mermaid-mode)
 
 (provide 'init-diagrams)
 ;;; init-diagrams.el ends here

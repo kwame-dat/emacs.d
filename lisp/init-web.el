@@ -4,6 +4,9 @@
 
 (use-package emmet-mode)
 
+;; (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
+;; (setq web-mode-content-types-alist '(("tsx" . "\\.js[x]?\\'")))
+
 (use-package web-mode
   :defer t
   :mode "\\(?:\\(?:\\.\\(?:html\\|twig\\)\\)\\)\\'"
@@ -54,7 +57,8 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
-
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 
 (use-package web-beautify
   :defer t)

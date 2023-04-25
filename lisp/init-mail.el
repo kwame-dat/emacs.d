@@ -3,10 +3,11 @@
 ;;; Code:
 
 
-;; (if (eq system-type 'gnu/linux)
-;; )
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu/mu4e")
-(setq mu4e-mu-binary "/usr/local/bin/mu")
+(if (memq window-system '(mac ns))
+    (add-to-list 'load-path "/opt/homebrew/Cellar/mu/1.8.14/share/emacs/site-lisp/mu/mu4e")
+  (setq mu4e-mu-binary "/opt/homebrew/bin/mu")
+)
+
 (require 'mu4e)
 
 (require 'org-mu4e)

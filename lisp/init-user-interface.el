@@ -11,7 +11,7 @@
 (menu-bar-mode -1)            ; Disable the menu bar
 
 
-(global-visual-line-mode 1)
+;; (global-visual-line-mode 1)
 
 ;;; Set up the visible bell
 (setq visible-bell t)

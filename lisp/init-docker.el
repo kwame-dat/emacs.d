@@ -8,6 +8,9 @@
 (use-package docker
   :defer t)
 
+(use-package docker-tramp
+  :defer t)
+
 (kd/leader-key-def
   "d"  '(:ignore t :which-key "docker")
   "dd"  'docker

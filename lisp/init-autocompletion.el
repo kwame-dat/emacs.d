@@ -3,8 +3,6 @@
 ;;; Code:
 (use-package company
   :defer t
-  :after lsp-mode
-  :hook (lsp-mode . company-mode)
   :config
   (setq company-global-modes
 	'(not

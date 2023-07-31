@@ -16,7 +16,7 @@
 ;; (setq modus-themes-paren-match '(bold intense))
 ;; (load-theme 'modus-vivendi t)
 
-(load-theme 'doom-tomorrow-night t)
+(load-theme 'doom-one t)
 
 (provide 'init-themes)
 ;;; init-themes.el ends here

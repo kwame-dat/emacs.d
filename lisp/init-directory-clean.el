@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (setq create-lockfiles nil)
-(setq backup-directory-alist `(("." . ,(expand-file-name "tmp/backups/" user-emacs-directory))))
+(setq backup-directory-alist `(("." . ,(expand-file-name "/tmp/backups/" user-emacs-directory))))
 ;; (setq make-backup-files nil)
 
 ;; Change the user-emacs-directory to keep unwanted things out of ~/.emacs.d

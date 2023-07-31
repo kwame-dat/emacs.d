@@ -27,7 +27,8 @@
 	;;; <leader> p --- projects
   "pp"  'projectile-switch-project
   "pi"  'projectile-invalidate-cache
-  "pt"  'projectile-run-vterm
+  "pt"  'projectile-run-shell
+  "pv"  'projectile-run-vterm
   "pe"  'projectile-run-eshell
   "pb"  'persp-counsel-switch-buffer
   "ps"  'counsel-projectile-rg

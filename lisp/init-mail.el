@@ -4,7 +4,7 @@
 
 
 (if (memq window-system '(mac ns))
-    (add-to-list 'load-path "/opt/homebrew/Cellar/mu/1.10.3/share/emacs/site-lisp/mu/mu4e")
+    (add-to-list 'load-path "/opt/homebrew/Cellar/mu/1.10.6/share/emacs/site-lisp/mu/mu4e")
   (setq mu4e-mu-binary "/opt/homebrew/bin/mu")
 )
 

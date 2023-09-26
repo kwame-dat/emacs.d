@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 ;; (setq-default line-spacing 0.9)
-(set-face-attribute 'default nil :font "Operator Mono 15")
+(set-face-attribute 'default nil :font "Dank Mono Book 16")
 (set-face-attribute 'fixed-pitch nil :family "Noto Sans" :height 1.0)
 (set-face-attribute 'variable-pitch nil :family "Noto Sans" :height 1.0)
 

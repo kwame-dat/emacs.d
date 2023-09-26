@@ -4,9 +4,6 @@
 (use-package kubernetes
   :defer t)
 
-(use-package kubernetes-tramp
-  :defer t)
-
 (use-package kubernetes-evil
   :defer t)
 

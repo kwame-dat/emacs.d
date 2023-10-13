@@ -1,6 +1,7 @@
 ;;; init-autocompletion.el --- autocompletion -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
+
 (use-package company
   :defer t
   :config
@@ -16,16 +17,12 @@
 	  vterm-mode)
 
 	company-selection-wrap-around t
-	company-idle-delay 0
+	company-idle-delay 0.0
 	company-minimum-prefix-length 1
 	company-selection-wrap-around t
 	company-tooltip-align-annotations t
 	company-require-match 'never
-	company-auto-commit nil
-	company-auto-commit-chars nil
-	company-dabbrev-other-buffers nil
-	company-dabbrev-ignore-case nil
-	company-dabbrev-downcase nil)
+	company-insertion-on-trigger nil)
   )
 
 (add-hook 'after-init-hook 'global-company-mode)

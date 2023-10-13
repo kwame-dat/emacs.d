@@ -1,6 +1,15 @@
 ;;; init-lsp.el --- lsp -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
+
+(setq lsp-log-io nil) ;; Don't log everything = speed
+(setq lsp-restart 'auto-restart)
+(setq lsp-ui-sideline-show-diagnostics t)
+(setq lsp-ui-sideline-show-hover t)
+(setq lsp-ui-sideline-show-code-actions t)
+(setq lsp-ui-sideline-enable t)
+(setq lsp-ui-doc-position 'bottom)
+
 (use-package lsp-mode
   :defer t
   :straight t
@@ -20,9 +29,6 @@
   :custom (lsp-headerline-breadcrumb-enable nil))
 
 
-(setq lsp-ui-sideline-enable t)
-(setq lsp-ui-sideline-show-hover nil)
-(setq lsp-ui-doc-position 'bottom)
 (use-package lsp-ui
   :after lsp
   :hook (lsp-mode . lsp-ui-mode)
@@ -33,8 +39,8 @@
   :config
   (lsp-ui-doc-show))
 
-;; (use-package company-lsp
-;;   :ensure t)
+(use-package company-lsp
+  :ensure t)
 
 (use-package lsp-ivy
   :commands lsp-ivy-workspace-symbol lsp-ivy-global-workspace-symbol

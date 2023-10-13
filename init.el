@@ -83,7 +83,7 @@
 (require 'init-writing)
 
 ;; Languages
-(require 'init-eglot)
+(require 'init-lsp)
 (require 'init-php)
 (require 'init-web)
 (require 'init-javascript)

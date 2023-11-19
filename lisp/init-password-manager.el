@@ -4,6 +4,8 @@
 ;; (setq auth-sources
 ;;       '((:source "~/.authinfo.gpg")))
 
+(fset 'epg-wait-for-status 'ignore)
+
 (use-package pass
   :defer t)
 

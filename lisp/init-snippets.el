@@ -13,5 +13,8 @@
 (use-package yasnippet-snippets
   :defer t)
 
+(use-package lorem-ipsum
+  :defer t)
+
 (provide 'init-snippets)
 ;;; init-snippets.el ends here

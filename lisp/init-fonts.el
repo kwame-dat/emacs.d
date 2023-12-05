@@ -1,8 +1,8 @@
 ;;; init-fonts.el --- Fonts -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
-;; (setq-default line-spacing 0.9)
-(set-face-attribute 'default nil :font "iosevka 16")
+(setq-default line-spacing 0.5)
+(set-face-attribute 'default nil :font "Dank Mono 16")
 (set-face-attribute 'fixed-pitch nil :family "Noto Sans" :height 1.0)
 (set-face-attribute 'variable-pitch nil :family "Noto Sans" :height 1.0)
 

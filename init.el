@@ -13,6 +13,7 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 (setq tramp-histfile-override "/dev/null")
+(setq org-element-use-cache nil)
 
 ;; Native Compilation
 (setq comp-async-report-warnings-errors nil)

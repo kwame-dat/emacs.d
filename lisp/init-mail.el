@@ -1,21 +1,25 @@
 ;;; init-mail.el --- mail -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
-
-
 (if (memq window-system '(mac ns))
     (add-to-list 'load-path "/opt/homebrew/opt/mu/share/emacs/site-lisp/mu/mu4e")
-  (setq mu4e-mu-binary "/opt/homebrew/bin/mu")
-)
+  (setq mu4e-mu-binary "/opt/homebrew/bin/mu"))
 
 (require 'mu4e)
 
-;; (require 'org-mu4e)
+(setq message-send-mail-function 'smtpmail-send-it
+   starttls-use-gnutls t
+   smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
+   smtpmail-auth-credentials
+     '(("smtp.gmail.com" 587 "tony@arksolutions.it" nil))
+   smtpmail-default-smtp-server "smtp.gmail.com"
+   smtpmail-smtp-server "smtp.gmail.com"
+   smtpmail-smtp-service 587)
 
 (setq mu4e-maildir "~/.mail")
+(setq send-mail-function 'smtpmail-send-it)
 
 (setq mu4e-change-filenames-when-moving t)
-(setq send-mail-function 'smtpmail-send-it)
 
 ;; Default account on startup
 (setq user-full-name  "Tony Ampomah"
@@ -63,10 +67,10 @@
      (mu4e-trash-folder "/tony@arksolutions.it/[Gmail]/Bin")
      (user-mail-address "tony@arksolutions.it")
      (smtpmail-default-smtp-server "smtp.gmail.com")
-     (smtpmail-local-domain "gmail.com")
+     ;; (smtpmail-local-domain "gmail.com")
      (smtpmail-smtp-user "tony@arksolutions.it")
      (smtpmail-smtp-server "smtp.gmail.com")
-     (smtpmail-stream-type starttls)
+     ;; (smtpmail-stream-type 'starttls)
      (smtpmail-smtp-service 587))
 
     ("tony.ampomah.jw@gmail.com"
@@ -80,12 +84,28 @@
      (mu4e-trash-folder "/tony.ampomah.jw@gmail.com/[Gmail]/Trash")
      (user-mail-address "tony.ampomah.jw@gmail")
      (smtpmail-default-smtp-server "smtp.gmail.com")
-     (smtpmail-local-domain "gmail.com")
+     ;; (smtpmail-local-domain "gmail.com")
      (smtpmail-smtp-user "tony.ampomah.jw@gmail.com")
      (smtpmail-smtp-server "smtp.gmail.com")
-     (smtpmail-stream-type starttls)
+     ;; (smtpmail-stream-type 'starttls)
      (smtpmail-smtp-service 587))
-    
+
+    ("itechytony@gmail.com"
+     (user-full-name  "Tony Ampomah")
+     (mu4e-compose-signature . (concat
+                                "Regards\n"
+                                "Tony\n"))
+     (mu4e-compose-signature-auto-include t)
+     (mu4e-sent-folder "/itechytony@gmail.com/[Gmail]/Sent Mail")
+     (mu4e-drafts-folder "/itechytony@gmail.com/[Gmail]/Drafts")
+     (mu4e-trash-folder "/itechytony@gmail.com/[Gmail]/Trash")
+     (user-mail-address "tony.ampomah.jw@gmail")
+     (smtpmail-default-smtp-server "smtp.gmail.com")
+     ;; (smtpmail-local-domain "gmail.com")
+     (smtpmail-smtp-user "itechytony@gmail.com")
+     (smtpmail-smtp-server "smtp.gmail.com")
+     ;; (smtpmail-stream-type starttls)
+     (smtpmail-smtp-service 587))
     ))
 
 ;; Whenever a new mail is to be composed, change all relevant
@@ -133,7 +153,7 @@
           "/itechytony@gmail.com/4Archives")
 
          ;; everything else goes to /archive
-         (t  "/archive"))))
+         (t  "/4Archives"))))
 
 (setq mu4e-trash-folder
       (lambda (msg)
@@ -165,7 +185,27 @@
 
 (use-package mu4e-alert)
 
-(use-package notmuch)
+(use-package org-msg
+  :config
+  (setq mail-user-agent 'mu4e-user-agent)
+  (setq org-msg-options "html-postamble:nil H:5 num:nil ^:{} toc:nil author:nil email:nil \\n:t"
+	org-msg-startup "hidestars indent inlineimages"
+	org-msg-greeting-fmt "\nHi%s,\n\n"
+	org-msg-greeting-name-limit 3
+	org-msg-default-alternatives '((new		. (text html))
+				       (reply-to-html	. (text html))
+				       (reply-to-text	. (text)))
+	org-msg-convert-citation t
+	org-msg-signature "
+
+ Regards,
+
+ #+begin_signature
+ --
+ *Tony*
+ #+end_signature")
+(org-msg-mode)
+  )
 
 (provide 'init-mail)
 ;;; init-mail.el ends here

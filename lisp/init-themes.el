@@ -14,7 +14,7 @@
 ;; (setq modus-themes-italic-constructs t)
 ;; (setq modus-themes--weight-widget 'light)
 ;; (setq modus-themes-paren-match '(bold intense))
-(load-theme 'doom-one t)
+(load-theme 'doom-tomorrow-night t)
 
 
 (provide 'init-themes)

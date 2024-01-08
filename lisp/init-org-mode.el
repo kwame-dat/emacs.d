@@ -21,8 +21,11 @@
   :config
   (setq org-ellipsis " ⤵"
 	org-hide-emphasis-markers t
-	;; org-agenda-archives-mode t
+	org-agenda-archives-mode t
 	org-src-fontify-natively t
+	org-agenda-start-with-log-mode t
+	org-log-done 'time
+	org-log-into-drawer t
 	org-src-tab-acts-natively t
 	org-edit-src-content-indentation 2
 	org-hide-block-startup nil
@@ -179,6 +182,7 @@
 ;; Task Management & Agenda Views
 (setq org-directory "~/org")
 (setq org-agenda-files '(
+			 "~/org/Roadmap.org"
 			 "~/org/PTodo.org"
 			 "~/org/WTodo.org"
 			 "~/org/Habits.org"
@@ -219,18 +223,23 @@
 
 (setq org-capture-templates
       '(
-	("i" "Inbox Personal" entry (file "~/org/Inbox.org")
+	("i" "Personal Inbox" entry (file "~/org/Inbox.org")
 	 "* TODO %?\n %i\n")
-	("w" "Inbox Work" entry (file "~/org/WInbox.org")
+	("p" "Personal Project" entry (file+headline "~/org/PTodo.org" "1Projects")
+	 (file "~/org/templates/project.org"))
+	("w" "Work Inbox" entry (file "~/org/WInbox.org")
 	 "* TODO %?\n %i\n")
-	("e" "Email" entry (file+headline "~/org/Inbox.org" "Emails")
+	("r" "Work Project" entry (file+headline "~/org/WTodo.org" "1Projects")
+	 (file "~/org/templates/project.org"))
+	("e" "Jira Epic Ticket" entry (file+headline "~/org/WTodo.org" "Jira")
+	 (file "~/org/templates/epic.org"))
+	("s" "Jira Story Ticket" entry (file+headline "~/org/WTodo.org" "Jira")
+	 (file "~/org/templates/story.org"))
+	("b" "Jira Bug Ticket" entry (file+headline "~/org/WTodo.org" "Jira")
+	 (file "~/org/templates/bug.org"))
+	("m" "Mail" entry (file+headline "~/org/Inbox.org" "")
 	 "* TODO [#A] Process Email %:fromname on %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n:PROPERTIES:\n:CREATED: %U\n:END:\n %a" :immediate-finish t :prepend t)
-	("p" "Project Personal" entry (file+headline "~/org/PTodo.org" "1Projects")
-	 (file "~/org/templates/new-project.org"))
-	("r" "Project Work" entry (file+headline "~/org/WTodo.org" "1Projects")
-	 (file "~/org/templates/new-work-project.org"))
-	("s" "Someday" entry (file+headline "~/org/PSomeday.org" "Someday")
-	 "* SOMEDAY %?\n")))
+	))
 
 ;; I prefer indented in org mode please.
 (setq org-startup-indented t)
@@ -424,6 +433,152 @@
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
+
+(setq org-agenda-custom-commands
+      `(("A" "Daily agenda and top priority tasks"
+         ((tags-todo "*"
+                     ((org-agenda-skip-function '(org-agenda-skip-if nil '(timestamp)))
+                      (org-agenda-skip-function
+                       `(org-agenda-skip-entry-if
+                         'notregexp ,(format "\\[#%s\\]" (char-to-string org-priority-highest))))
+                      (org-agenda-block-separator nil)
+                      (org-agenda-overriding-header "Important tasks without a date\n")))
+          (agenda "" ((org-agenda-span 1)
+                      (org-deadline-warning-days 0)
+                      (org-agenda-block-separator nil)
+                      (org-scheduled-past-days 0)
+                      ;; We don't need the `org-agenda-date-today'
+                      ;; highlight because that only has a practical
+                      ;; utility in multi-day views.
+                      (org-agenda-day-face-function (lambda (date) 'org-agenda-date))
+                      (org-agenda-format-date "%A %-e %B %Y")
+                      (org-agenda-overriding-header "\nToday's agenda\n")))
+          (agenda "" ((org-agenda-start-on-weekday nil)
+                      (org-agenda-start-day "+1d")
+                      (org-agenda-span 3)
+                      (org-deadline-warning-days 0)
+                      (org-agenda-block-separator nil)
+                      (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                      (org-agenda-overriding-header "\nNext three days\n")))
+          (agenda "" ((org-agenda-time-grid nil)
+                      (org-agenda-start-on-weekday nil)
+                      ;; We don't want to replicate the previous section's
+                      ;; three days, so we start counting from the day after.
+                      (org-agenda-start-day "+4d")
+                      (org-agenda-span 14)
+                      (org-agenda-show-all-dates nil)
+                      (org-deadline-warning-days 0)
+                      (org-agenda-block-separator nil)
+                      (org-agenda-entry-types '(:deadline))
+                      (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                      (org-agenda-overriding-header "\nUpcoming deadlines (+14d)\n")))))
+        ("P" "Plain text daily agenda and top priorities"
+         ((tags-todo "*"
+                     ((org-agenda-skip-function '(org-agenda-skip-if nil '(timestamp)))
+                      (org-agenda-skip-function
+                       `(org-agenda-skip-entry-if
+                         'notregexp ,(format "\\[#%s\\]" (char-to-string org-priority-highest))))
+                      (org-agenda-block-separator nil)
+                      (org-agenda-overriding-header "Important tasks without a date\n")))
+          (agenda "" ((org-agenda-span 1)
+                      (org-deadline-warning-days 0)
+                      (org-agenda-block-separator nil)
+                      (org-scheduled-past-days 0)
+                      ;; We don't need the `org-agenda-date-today'
+                      ;; highlight because that only has a practical
+                      ;; utility in multi-day views.
+                      (org-agenda-day-face-function (lambda (date) 'org-agenda-date))
+                      (org-agenda-format-date "%A %-e %B %Y")
+                      (org-agenda-overriding-header "\nToday's agenda\n")))
+          (agenda "" ((org-agenda-start-on-weekday nil)
+                      (org-agenda-start-day "+1d")
+                      (org-agenda-span 3)
+                      (org-deadline-warning-days 0)
+                      (org-agenda-block-separator nil)
+                      (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                      (org-agenda-overriding-header "\nNext three days\n")))
+          (agenda "" ((org-agenda-time-grid nil)
+                      (org-agenda-start-on-weekday nil)
+                      ;; We don't want to replicate the previous section's
+                      ;; three days, so we start counting from the day after.
+                      (org-agenda-start-day "+4d")
+                      (org-agenda-span 14)
+                      (org-agenda-show-all-dates nil)
+                      (org-deadline-warning-days 0)
+                      (org-agenda-block-separator nil)
+                      (org-agenda-entry-types '(:deadline))
+                      (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                      (org-agenda-overriding-header "\nUpcoming deadlines (+14d)\n"))))
+         ((org-agenda-with-colors nil)
+          (org-agenda-prefix-format "%t %s")
+          (org-agenda-current-time-string ,(car (last org-agenda-time-grid)))
+          (org-agenda-fontify-priorities nil)
+          (org-agenda-remove-tags t))
+         ("agenda.txt"))))
+
+
+
+;; And this is what I actually use.  The `defvar' is stored in my
+;; kwamedat-org.el file.  In the video I explain why I use this style.
+
+(defvar kwamedat-org-custom-daily-agenda
+  ;; NOTE 2021-12-08: Specifying a match like the following does not
+  ;; work.
+  ;;
+  ;; tags-todo "+PRIORITY=\"A\""
+  ;;
+  ;; So we match everything and then skip entries with
+  ;; `org-agenda-skip-function'.
+  `((tags-todo "*"
+               ((org-agenda-skip-function '(org-agenda-skip-if nil '(timestamp)))
+                (org-agenda-skip-function
+                 `(org-agenda-skip-entry-if
+                   'notregexp ,(format "\\[#%s\\]" (char-to-string org-priority-highest))))
+                (org-agenda-block-separator nil)
+                (org-agenda-overriding-header "Important tasks without a date\n")))
+    (agenda "" ((org-agenda-span 1)
+                (org-deadline-warning-days 0)
+                (org-agenda-block-separator nil)
+                (org-scheduled-past-days 0)
+                ;; We don't need the `org-agenda-date-today'
+                ;; highlight because that only has a practical
+                ;; utility in multi-day views.
+                (org-agenda-day-face-function (lambda (date) 'org-agenda-date))
+                (org-agenda-format-date "%A %-e %B %Y")
+                (org-agenda-overriding-header "\nToday's agenda\n")))
+    (agenda "" ((org-agenda-start-on-weekday nil)
+                (org-agenda-start-day "+1d")
+                (org-agenda-span 3)
+                (org-deadline-warning-days 0)
+                (org-agenda-block-separator nil)
+                (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                (org-agenda-overriding-header "\nNext three days\n")))
+    (agenda "" ((org-agenda-time-grid nil)
+                (org-agenda-start-on-weekday nil)
+                ;; We don't want to replicate the previous section's
+                ;; three days, so we start counting from the day after.
+                (org-agenda-start-day "+4d")
+                (org-agenda-span 14)
+                (org-agenda-show-all-dates nil)
+                (org-deadline-warning-days 0)
+                (org-agenda-block-separator nil)
+                (org-agenda-entry-types '(:deadline))
+                (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                (org-agenda-overriding-header "\nUpcoming deadlines (+14d)\n"))))
+  "Custom agenda for use in `org-agenda-custom-commands'.")
+
+(setq org-agenda-custom-commands
+      `(("A" "Daily agenda and top priority tasks"
+         ,kwamedat-org-custom-daily-agenda)
+        ("P" "Plain text daily agenda and top priorities"
+         ,kwamedat-org-custom-daily-agenda
+         ((org-agenda-with-colors nil)
+          (org-agenda-prefix-format "%t %s")
+          (org-agenda-current-time-string ,(car (last org-agenda-time-grid)))
+          (org-agenda-fontify-priorities nil)
+          (org-agenda-remove-tags t))
+         ("agenda.txt"))))
 
 
 ;; Bindings

@@ -16,7 +16,7 @@
    smtpmail-smtp-server "smtp.gmail.com"
    smtpmail-smtp-service 587)
 
-(setq mu4e-maildir "~/.mail")
+(setq mu4e-maildir "~/Mail")
 (setq send-mail-function 'smtpmail-send-it)
 
 (setq mu4e-change-filenames-when-moving t)
@@ -142,18 +142,18 @@
 
          ((string-match "^/tony@arksolutions.it.*"
                         (mu4e-message-field msg :maildir))
-          "/tony@arksolutions.it/4Archives")
+          "/tony@arksolutions.it/Archives")
 
          ((string-match "^/tony.ampomah.jw@gmail.com*"
                         (mu4e-message-field msg :maildir))
-          "/tony.ampomah.jw@gmail.com/4Archives")
+          "/tony.ampomah.jw@gmail.com/Archives")
 
          ((string-match "^/itechytony@gmail.com.*"
                         (mu4e-message-field msg :maildir))
-          "/itechytony@gmail.com/4Archives")
+          "/itechytony@gmail.com/Archives")
 
          ;; everything else goes to /archive
-         (t  "/4Archives"))))
+         (t  "/Archives"))))
 
 (setq mu4e-trash-folder
       (lambda (msg)
@@ -170,7 +170,6 @@
                         (mu4e-message-field msg :maildir))
           "/itechytony@gmail.com/[Gmail]/Trash")
 
-         ;; everything else goes to /archive
          (t  "/Trash"))))
 
 ;; use org structures and tables in message mode

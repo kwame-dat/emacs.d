@@ -184,7 +184,8 @@
 ;; Task Management & Agenda Views
 (setq org-directory "~/org")
 (setq org-agenda-files '(
-			 "~/org/calendar.org"
+			 "~/org/calendar-joint.org"
+			 "~/org/calendar-spiritual.org"
 			 "~/org/Inbox.org"
 			 "~/org/Habits.org"
 			 "~/org/PTodo.org"

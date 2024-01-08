@@ -46,6 +46,8 @@
 
   ;; (setq org-outline-path-complete-in-steps nil)
   ;; (setq org-refile-use-outline-path t)
+  (setq org-habit-graph-column 60)
+
 
   (evil-define-key '(normal insert visual) org-mode-map (kbd "C-j") 'org-next-visible-heading)
   (evil-define-key '(normal insert visual) org-mode-map (kbd "C-k") 'org-previous-visible-heading)
@@ -182,11 +184,11 @@
 ;; Task Management & Agenda Views
 (setq org-directory "~/org")
 (setq org-agenda-files '(
-			 "~/org/Roadmap.org"
+			 "~/org/calendar.org"
+			 "~/org/Inbox.org"
+			 "~/org/Habits.org"
 			 "~/org/PTodo.org"
 			 "~/org/WTodo.org"
-			 "~/org/Habits.org"
-			 "~/org/Inbox.org"
 			 ))
 
 
@@ -595,7 +597,7 @@
   "nt" '(lambda() (interactive) (org-roam-dailies-capture-today))
   "np" '(lambda() (interactive) (find-file "~/org/PTodo.org"))
   "nw" '(lambda() (interactive) (find-file "~/org/WTodo.org"))
-  "nj" '(lambda() (interactive) (find-file "~/org/joint/JTodo.org"))
+  "nh" '(lambda() (interactive) (find-file "~/org/Habits.org"))
   "na" 'org-agenda
   "nd" 'kd/day-view)
 

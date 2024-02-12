@@ -6,10 +6,8 @@
 
 (use-package web-mode
   :defer t
-  :mode (("\\.js\\'" . web-mode)
+  :mode (
 	 ("\\.jsx\\'" .  web-mode)
-	 ("\\.ts\\'" . web-mode)
-	 ("\\.tsx\\'" . web-mode)
 	 ("\\.vue\\'" . web-mode)
 	 ("\\.hbs\\'" . web-mode)
 	 ("\\.html\\'" . web-mode))
@@ -43,14 +41,14 @@
               (flycheck-mode)))
 
   (add-hook 'web-mode-before-auto-complete-hooks
-           #'(lambda ()
-               (let ((web-mode-cur-language (web-mode-language-at-pos)))
-                 (if (string= web-mode-cur-language "php")
-                     (yas-activate-extra-mode 'php-mode)
-                   (yas-deactivate-extra-mode 'php-mode))
-                 (if (string= web-mode-cur-language "css")
-                     (setq emmet-use-css-transform t)
-                   (setq emmet-use-css-transform nil))))))
+            #'(lambda ()
+		(let ((web-mode-cur-language (web-mode-language-at-pos)))
+                  (if (string= web-mode-cur-language "php")
+                      (yas-activate-extra-mode 'php-mode)
+                    (yas-deactivate-extra-mode 'php-mode))
+                  (if (string= web-mode-cur-language "css")
+                      (setq emmet-use-css-transform t)
+                    (setq emmet-use-css-transform nil))))))
 
 (use-package web-beautify
   :defer t)

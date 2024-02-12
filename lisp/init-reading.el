@@ -20,6 +20,8 @@
   :config
   (setq dash-docs-enable-debugging nil))
 
+(straight-use-package
+ '(openapi-preview :type git :host github :repo "merrickluo/openapi-preview"))
 
 ;; Reading PDFs
 (use-package pdf-tools

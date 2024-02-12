@@ -5,7 +5,7 @@
 (setq lsp-log-io nil) ;; Don't log everything = speed
 (setq lsp-restart 'auto-restart)
 (setq lsp-ui-sideline-show-diagnostics t)
-(setq lsp-ui-sideline-show-hover t)
+(setq lsp-ui-sideline-show-hover nil)
 (setq lsp-ui-sideline-show-code-actions t)
 (setq lsp-ui-sideline-enable t)
 (setq lsp-ui-doc-position 'bottom)
@@ -25,19 +25,8 @@
           php-mode
           c-mode) . lsp)
   :bind (:map lsp-mode-map
-         ("TAB" . completion-at-point))
+              ("TAB" . completion-at-point))
   :custom (lsp-headerline-breadcrumb-enable nil))
-
-
-(use-package lsp-ui
-  :after lsp
-  :hook (lsp-mode . lsp-ui-mode)
-  :defer t
-  :bind (:map lsp-ui-mode-map
-              ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-              ([remap xref-find-references] . lsp-ui-peek-find-references))
-  :config
-  (lsp-ui-doc-show))
 
 (use-package company-lsp
   :ensure t)

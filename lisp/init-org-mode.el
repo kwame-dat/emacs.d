@@ -245,6 +245,8 @@
 	 (file "~/org/templates/spiritual/talk.org"))
 	("sw" "Watchtower" entry (file+headline "~/org/PTodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/watchtower-reader.org"))
+	("sk" "Kingdom Cleaning" entry (file+headline "~/org/PTodo.org" "1Projects")
+	 (file "~/org/templates/spiritual/cleaning.org"))
 	("si" "Initial Call" entry (file+headline "~/org/PTodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/initial-call.org"))
 	("sa" "Audio Visual")
@@ -266,11 +268,11 @@
 	 "* TODO %?\n %i\n")
 	("wp" "Work Project" entry (file+headline "~/org/WTodo.org" "1Projects")
 	 (file "~/org/templates/work/project.org"))
-	("we" "Work Jira Epic Ticket" entry (file+headline "~/org/WInbox.org" "Jira")
+	("we" "Work Jira Epic Ticket" entry (file+headline "~/org/jira.org" "Jira")
 	 (file "~/org/templates/work/epic.org"))
-	("ws" "Work Jira Story Ticket" entry (file+headline "~/org/WInbox.org" "Jira")
-	 (file "~/org/templates/story.org"))
-	("wb" "Work Jira Bug Ticket" entry (file+headline "~/org/WInbox.org" "Jira")
+	("ws" "Work Jira Story Ticket" entry (file+headline "~/org/jira.org" "Jira")
+	 (file "~/org/templates/work/story.org"))
+	("wb" "Work Jira Bug Ticket" entry (file+headline "~/org/jira.org" "Jira")
 	 (file "~/org/templates/work/bug.org"))
 	("m" "Mail" entry (file+headline "~/org/Inbox.org" "")
 	 "* TODO [#A] Process Email %:fromname on %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n:PROPERTIES:\n:CREATED: %U\n:END:\n %a" :immediate-finish t :prepend t)
@@ -614,7 +616,6 @@
           (org-agenda-fontify-priorities nil)
           (org-agenda-remove-tags t))
          ("agenda.txt"))))
-
 
 ;; Bindings
 (kd/leader-key-def

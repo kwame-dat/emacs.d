@@ -3,7 +3,6 @@
 ;;; Code:
 (use-package flycheck
   :defer t
-  :hook (lsp-mode . flycheck-mode)
   :config
   (setq flycheck-emacs-lisp-load-path 'inherit
         flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list
@@ -12,8 +11,6 @@
         flycheck-global-modes '(not org-mode)
 	flycheck-phpcs-standard "PSR12")
   (global-flycheck-mode))
-
-(use-package flycheck-phpstan)
 
 (use-package flycheck-yamllint
   :ensure t

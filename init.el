@@ -45,7 +45,6 @@
 (require 'init-themes) ;; stop theme compilation
 (require 'init-modeline)
 (require 'init-fonts)
-(require 'init-icons)
 (require 'init-completion)
 (require 'init-treemacs)
 (require 'init-workspace) ;; fix persp mode

@@ -2,9 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 (setq-default line-spacing 0.5)
-(set-face-attribute 'default nil :font "Dank Mono 16")
-(set-face-attribute 'fixed-pitch nil :family "Noto Sans" :height 1.0)
-(set-face-attribute 'variable-pitch nil :family "Noto Sans" :height 1.0)
+(set-face-attribute 'default nil :font "JetBrains Mono" :weight 'light :height 160)
+(set-face-attribute 'fixed-pitch nil :font "JetBrains Mono" :weight 'light :height 190)
+(set-face-attribute 'variable-pitch nil :font "Iosevka Aile" :weight 'light :height 160)
 
 ;; Set the font face based on platform
 (use-package mixed-pitch

@@ -6,8 +6,6 @@
   :defer t
   :config
   (setq projectile-project-search-path '(
-					 "~/Documents/2Areas"
-					 "~/Documents/1Projects"
 					 "~/Nextcloud/Documents/Joint/2Areas"
 					 "~/Nextcloud/Documents/Joint/1Projects"
 					 "~/Nextcloud/Documents/Personal/2Areas"

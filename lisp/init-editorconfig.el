@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (use-package editorconfig
-  ;; :defer t
+  :defer t
   :config
   (editorconfig-mode 1))
 

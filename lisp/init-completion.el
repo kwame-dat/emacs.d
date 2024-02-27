@@ -1,7 +1,6 @@
 ;;; init-completion.el --- Completion -*- lexical-binding: t -*-
 ;;; Commentary: Better Completion with Ivy
 ;;; Code:
-
 (use-package ivy
   :diminish
   :bind (("C-s" . swiper)

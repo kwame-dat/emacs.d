@@ -4,6 +4,7 @@
 
 (use-package alert
   :demand t
+  :defer t
   :commands alert
   :config
   (setq alert-default-style 'notifications))

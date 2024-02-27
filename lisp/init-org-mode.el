@@ -1,7 +1,6 @@
 ;;; init-org-mode.el --- org-mode -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
-
 (setq-default fill-column 80)
 
 ;; Turn on indentation and auto-fill mode for Org files
@@ -48,7 +47,6 @@
   ;; (setq org-refile-use-outline-path t)
   (setq org-habit-graph-column 60)
 
-
   (evil-define-key '(normal insert visual) org-mode-map (kbd "C-j") 'org-next-visible-heading)
   (evil-define-key '(normal insert visual) org-mode-map (kbd "C-k") 'org-previous-visible-heading)
 
@@ -79,9 +77,22 @@
   (setq org-pomodoro-long-break-length 60)
   (setq org-pomodoro-long-break-frequency 10))
 
-(use-package org-gcal
+(setq org-caldav-url "https://nextcloud.theampomahs.com/remote.php/caldav/calendars/kwamedat")
+(setq org-caldav-calendars
+      '(
+	(:calendar-id "spiritual" :inbox "~/org/calendar/scal.org")
+	;; (:calendar-id "events" :inbox "~/org/calendar/ecal.org")
+	;; (:calendar-id "tony-tayo" :inbox "~/org/calendar/jcal.org")
+    ))
+
+(use-package org-caldav
   :after org
   :defer t)
+
+(use-package ox-twbs
+  :after org
+  :defer t
+  :init (add-to-list 'org-export-backends 'twbs))
 
 (use-package org-jira
   :defer t
@@ -89,6 +100,10 @@
   :after org
   :config
   (setq jiralib-url ""))
+
+(use-package ob-php
+  :after org
+  :defer t)
 
 (use-package ox-pandoc
   :after org
@@ -100,15 +115,13 @@
   :defer t
   :init (add-to-list 'org-export-backends 'jira))
 
-(use-package  ox-slack
+(use-package ox-slack
   :after org
   :defer t
   :init (add-to-list 'org-export-backends 'slack))
 
-(use-package ox-twbs
-  :after org
-  :defer t
-  :init (add-to-list 'org-export-backends 'twbs))
+(straight-use-package
+ '(ox-tailwind :type git :host github :repo "vascoferreira25/ox-tailwind"))
 
 (use-package ox-slimhtml
   :after org
@@ -117,6 +130,9 @@
 
 (use-package ob-async
   :after org
+  :defer t)
+
+(use-package ob-php
   :defer t)
 
 (use-package ob-restclient
@@ -167,32 +183,28 @@
 (evil-define-key 'motion 'evil-org-mode
     (kbd "0") 'evil-org-beginning-of-line)
 
-
 ;; When editing a code snippet, use the current window rather than
 ;; popping open a new one (which shows the same information).
 (setq org-src-window-setup 'current-window)
-
 
 ;; Don't indent newly expanded blocks, even if they're under a heading.
 (setq org-adapt-indentation nil)
 
 ;; Automatically put quick capture into insert mode
-
 (add-hook 'org-capture-mode-hook 'evil-insert-state)
-
 
 ;; Task Management & Agenda Views
 (setq org-directory "~/org")
 (setq org-agenda-files '(
-			 "~/org/calendar-joint.org"
-			 "~/org/calendar-spiritual.org"
-			 "~/org/calendar-work.org"
-			 "~/org/Inbox.org"
-			 "~/org/Habits.org"
-			 "~/org/PTodo.org"
-			 "~/org/WTodo.org"
+			 "~/org/inbox.org"
+			 "~/org/habits.org"
+			 "~/org/ptodo.org"
+			 "~/org/wtodo.org"
+			 "~/org/calendar/scal.org"
+			 "~/org/calendar/ecal.org"
+			 "~/org/calendar/jcal.org"
+			 "~/org/calendar/wcal.org"
 			 ))
-
 
 ;; Refile targets configuration 
 (setq org-refile-targets
@@ -230,43 +242,43 @@
 	("p" "Personal")
 	("pi" "Personal Inbox" entry (file "~/org/Inbox.org")
 	 "* TODO %?\n %i\n")
-	("pp" "Personal Project" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("pp" "Personal Project" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/project.org"))
 	("s" "Spiritual")
-	("sb" "Bible Reading" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("sb" "Bible Reading" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/bible-reading.org"))
-	("sm" "Microphone" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("sm" "Microphone" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/microphone.org"))
-	("sr" "Return Visit" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("sr" "Return Visit" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/return-visit.org"))
-	("sc" "Cong. Bible Study Reader" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("sc" "Cong. Bible Study Reader" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/cong-bible-study-reader.org"))
-	("st" "Talk" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("st" "Talk" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/talk.org"))
-	("sw" "Watchtower" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("sw" "Watchtower" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/watchtower-reader.org"))
-	("sk" "Kingdom Cleaning" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("sk" "Kingdom Cleaning" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/cleaning.org"))
-	("si" "Initial Call" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("si" "Initial Call" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/initial-call.org"))
 	("sa" "Audio Visual")
-	("sam" "Audio Visual Main" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("sam" "Audio Visual Main" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/audio-visual.org"))
-	("saa" "Audio Visual Assistant" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("saa" "Audio Visual Assistant" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/audio-visual-assistant.org"))
-	("sab" "Broadcast" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("sab" "Broadcast" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/broadcast.org"))
 	("sp" "Prayer/Platform")
-	("spo" "Opening Prayer" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("spo" "Opening Prayer" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/opening-prayer.org"))
-	("spc" "Closing Prayer" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("spc" "Closing Prayer" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/closing-prayer.org"))
-	("spp" "Platform" entry (file+headline "~/org/PTodo.org" "1Projects")
+	("spp" "Platform" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/spiritual/platform.org"))
 	("w" "Work")
 	("wi" "Work Inbox" entry (file "~/org/WInbox.org")
 	 "* TODO %?\n %i\n")
-	("wp" "Work Project" entry (file+headline "~/org/WTodo.org" "1Projects")
+	("wp" "Work Project" entry (file+headline "~/org/wtodo.org" "1Projects")
 	 (file "~/org/templates/work/project.org"))
 	("we" "Work Jira Epic Ticket" entry (file+headline "~/org/jira.org" "Jira")
 	 (file "~/org/templates/work/epic.org"))
@@ -298,13 +310,9 @@
 ;; Fonts & Bullets
 ;; I like to see an outline of pretty bullets instead of a list of asterisks.
 (use-package org-bullets
+  :defer t
   :init
   (add-hook 'org-mode-hook 'org-bullets-mode))
-
-;; Replace list hyphen with dot
-;; (font-lock-add-keywords 'org-mode
-;;                         '(("^ *\\([-]\\) "
-;;                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
 ;; Generate Table of Contents Dynamically
 (use-package toc-org
@@ -321,13 +329,13 @@
 		(org-level-6 . 1.1)
 		(org-level-7 . 1.1)
 		(org-level-8 . 1.1)))
-  (set-face-attribute (car face) nil :font "Cantarell" :weight 'medium :height (cdr face)))
+  (set-face-attribute (car face) nil :font "Iosevka Aile" :weight 'medium :height (cdr face)))
 
 ;; Make sure org-indent face is available
 (require 'org-indent)
 
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
-(set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+;; (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
 (set-face-attribute 'org-table nil  :inherit 'fixed-pitch)
 (set-face-attribute 'org-formula nil  :inherit 'fixed-pitch)
 (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
@@ -336,11 +344,6 @@
 (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
 (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
 (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
-
-;; Get rid of the background on column views
-(set-face-attribute 'org-column nil :background nil)
-(set-face-attribute 'org-column-title nil :background nil)
-
 
 ;; Organisation (org and PARA)
 ;; A project is “any outcome that will
@@ -367,7 +370,7 @@
 ;; Projects
 (defun go-to-projects ()
   (interactive)
-  (find-file "~/org/PTodo.org")
+  (find-file "~/org/ptodo.org")
   (widen)
   (beginning-of-buffer)
   (re-search-forward "* Projects")
@@ -387,17 +390,15 @@
   (org-sort-entries t ?d)
   (org-columns))
 
-
 (defun my-org-agenda-list-stuck-projects ()
   (interactive)
   (go-to-projects)
   (org-agenda nil "#" 'subtree))
 
-
 ;; Areas
 (defun go-to-areas ()
   (interactive)
-  (find-file "~/org/PTodo.org")
+  (find-file "~/org/ptodo.org")
   (widen)
   (beginning-of-buffer)
   (re-search-forward "* Areas")
@@ -408,7 +409,6 @@
   (go-to-areas)
   (org-narrow-to-subtree)
   (org-columns))
-
 
 ;; Reviews
 (defun my-new-daily-review ()
@@ -470,7 +470,6 @@
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-
 
 (setq org-agenda-custom-commands
       `(("A" "Daily agenda and top priority tasks"
@@ -554,8 +553,6 @@
           (org-agenda-remove-tags t))
          ("agenda.txt"))))
 
-
-
 ;; And this is what I actually use.  The `defvar' is stored in my
 ;; kwamedat-org.el file.  In the video I explain why I use this style.
 
@@ -627,9 +624,9 @@
   "nc" '(lambda() (interactive) (org-roam-capture))
   "nn" '(lambda() (interactive) (org-capture))
   "nt" '(lambda() (interactive) (org-roam-dailies-capture-today))
-  "np" '(lambda() (interactive) (find-file "~/org/PTodo.org"))
-  "nw" '(lambda() (interactive) (find-file "~/org/WTodo.org"))
-  "nh" '(lambda() (interactive) (find-file "~/org/Habits.org"))
+  "np" '(lambda() (interactive) (find-file "~/org/ptodo.org"))
+  "nw" '(lambda() (interactive) (find-file "~/org/wtodo.org"))
+  "nh" '(lambda() (interactive) (find-file "~/org/habits.org"))
   "na" 'org-agenda
   "nd" 'kd/day-view)
 

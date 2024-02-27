@@ -14,9 +14,6 @@
   :after php-mode
   :defer t)
 
-(use-package ob-php
-  :defer t)
-
 (use-package php-cs-fixer
   :defer t)
 

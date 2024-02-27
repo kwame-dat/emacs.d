@@ -63,6 +63,7 @@
 ;; Development
 (require 'init-git)
 (require 'init-projectile)
+(require 'init-eglot)
 
 ;; Tools
 (require 'init-docker)
@@ -84,7 +85,6 @@
 (require 'init-writing)
 
 ;; Languages
-(require 'init-lsp)
 (require 'init-php)
 (require 'init-web)
 (require 'init-javascript)

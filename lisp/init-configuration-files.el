@@ -91,6 +91,5 @@
   "ft"  'counsel-tramp
   )
 
-
 (provide 'init-configuration-files)
 ;;; init-configuration-files.el ends here

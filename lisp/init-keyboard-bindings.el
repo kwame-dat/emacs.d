@@ -181,6 +181,8 @@
   "oE"  'eshell-toggle
   "ot" 'shell-pop
   "oT" 'open-terminal-in-projectile-root
+  "o-" 'dired-jump
+  "oo" 'dired-open-xdg
   )
 
 (kd/leader-key-def

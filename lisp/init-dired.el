@@ -53,11 +53,6 @@
     :config
     (dired-hide-dotfiles-mode))
 
-  ;; (use-package dired-hide-dotfiles
-  ;;   :config
-  ;;   (dired-hide-dotfiles-mode)
-  ;;   (define-key dired-mode-map "." 'dired-hide-dotfiles-mode))
-
   (evil-collection-define-key 'normal 'dired-mode-map
     "." 'dired-hide-dotfiles-mode
     "h" 'dired-single-up-directory
@@ -102,11 +97,6 @@
           ("webm" . "mpv")
           ("xls" . "gnumeric")
           ("xlsx" . "gnumeric"))))
-
-(kd/leader-key-def
-    "o-" 'dired-jump
-    "oo" 'dired-open-xdg)
-
 
 (provide 'init-dired)
 ;;; init-dired.el ends here

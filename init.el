@@ -14,6 +14,7 @@
 (package-initialize)
 (setq tramp-histfile-override "/dev/null")
 (setq org-element-use-cache nil)
+(setq tramp-default-method "ssh")
 
 ;; Native Compilation
 (setq comp-async-report-warnings-errors nil)
@@ -56,7 +57,6 @@
 
 ;; File Browsing
 (require 'init-dired)
-(require 'init-tramp)
 
 ;; Window
 (require 'init-window-management)

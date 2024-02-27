@@ -183,6 +183,15 @@
   "oT" 'open-terminal-in-projectile-root
   )
 
+(kd/leader-key-def
+  "ts"  'treemacs
+  "tc"  'company-mode
+  "tf"  'flycheck-mode
+  "tr"  'display-line-numbers
+  "ttl"  'toggle-truncate-lines
+  "tvl"  'global-visual-line-mode
+  "te"  'global-emojify-mode)
+
 ;; Keybinding Panel (which-key)
 (setq which-key-idle-delay 0.3)
 (setq which-key-side-window-max-height 0.5)

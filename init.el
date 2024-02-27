@@ -52,7 +52,6 @@
 (require 'init-configuration-files)
 (require 'init-search-n-lookup)
 (require 'init-notifications)
-(require 'init-toggles)
 (require 'init-tree-sitter)
 
 ;; File Browsing

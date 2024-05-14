@@ -3,6 +3,18 @@
 ;;; Code:
 (setq-default fill-column 80)
 
+;; Task Management & Agenda Views
+;; (setq org-directory "~/org")
+(setq org-agenda-files '(
+			 "~/org/calendar/scal.org"
+			 "~/org/calendar/ecal.org"
+			 "~/org/calendar/jcal.org"
+			 "~/org/calendar/wcal.org"
+			 "~/org/habits.org"
+			 "~/org/ptodo.org"
+			 "~/org/wtodo.org"
+			 ))
+
 ;; Turn on indentation and auto-fill mode for Org files
 (defun kd/org-mode-setup ()
   (org-indent-mode)
@@ -13,7 +25,7 @@
   (setq evil-auto-indent nil))
 
 (use-package org
-  :defer t
+  ;; :defer t
   :straight (:type built-in)
   ;; :straight org-plus-contrib
   :hook (org-mode . kd/org-mode-setup)
@@ -81,17 +93,17 @@
 (setq org-caldav-calendars
       '(
 	(:calendar-id "spiritual" :inbox "~/org/calendar/scal.org")
-	;; (:calendar-id "events" :inbox "~/org/calendar/ecal.org")
-	;; (:calendar-id "tony-tayo" :inbox "~/org/calendar/jcal.org")
-    ))
+	(:calendar-id "events" :inbox "~/org/calendar/ecal.org")
+	(:calendar-id "tony-tayo" :inbox "~/org/calendar/jcal.org")
+	))
 
 (use-package org-caldav
   :after org
   :defer t)
 
 (use-package ox-twbs
-  :after org
   :defer t
+  :after org
   :init (add-to-list 'org-export-backends 'twbs))
 
 (use-package org-jira
@@ -181,7 +193,7 @@
 (fset 'evil-redirect-digit-argument 'ignore) ;;# before evil-org loaded
 
 (evil-define-key 'motion 'evil-org-mode
-    (kbd "0") 'evil-org-beginning-of-line)
+  (kbd "0") 'evil-org-beginning-of-line)
 
 ;; When editing a code snippet, use the current window rather than
 ;; popping open a new one (which shows the same information).
@@ -193,18 +205,6 @@
 ;; Automatically put quick capture into insert mode
 (add-hook 'org-capture-mode-hook 'evil-insert-state)
 
-;; Task Management & Agenda Views
-(setq org-directory "~/org")
-(setq org-agenda-files '(
-			 "~/org/inbox.org"
-			 "~/org/habits.org"
-			 "~/org/ptodo.org"
-			 "~/org/wtodo.org"
-			 "~/org/calendar/scal.org"
-			 "~/org/calendar/ecal.org"
-			 "~/org/calendar/jcal.org"
-			 "~/org/calendar/wcal.org"
-			 ))
 
 ;; Refile targets configuration 
 (setq org-refile-targets
@@ -320,7 +320,7 @@
   :init (add-hook 'org-mode-hook #'toc-org-enable))
 
 ;; Increase the size of various headings
-(set-face-attribute 'org-document-title nil :font "Cantarell" :weight 'bold :height 1.3)
+(set-face-attribute 'org-document-title nil :font "Iosevka Aile" :weight 'bold :height 1.3)
 (dolist (face '((org-level-1 . 1.2)
 		(org-level-2 . 1.1)
 		(org-level-3 . 1.05)
@@ -459,17 +459,17 @@
 	 (org-agenda-day-view)))
 
 (with-eval-after-load 'ox-latex
-(add-to-list 'org-latex-classes
-             '("org-plain-latex"
-               "\\documentclass{article}
+  (add-to-list 'org-latex-classes
+               '("org-plain-latex"
+		 "\\documentclass{article}
            [NO-DEFAULT-PACKAGES]
            [PACKAGES]
            [EXTRA]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+		 ("\\section{%s}" . "\\section*{%s}")
+		 ("\\subsection{%s}" . "\\subsection*{%s}")
+		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
 (setq org-agenda-custom-commands
       `(("A" "Daily agenda and top priority tasks"

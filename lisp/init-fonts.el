@@ -1,10 +1,10 @@
 ;;; init-fonts.el --- Fonts -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
-(setq-default line-spacing 0.5)
-(set-face-attribute 'default nil :font "JetBrains Mono" :weight 'light :height 160)
-(set-face-attribute 'fixed-pitch nil :font "JetBrains Mono" :weight 'light :height 190)
-(set-face-attribute 'variable-pitch nil :font "Iosevka Aile" :weight 'light :height 160)
+(setq-default line-spacing 0.8)
+(set-face-attribute 'default nil :font "Operator Mono Light 16")
+(set-face-attribute 'fixed-pitch nil :font "Operator Mono Light 16")
+(set-face-attribute 'variable-pitch nil :font "Iosevka Aile 16")
 
 ;; Set the font face based on platform
 (use-package mixed-pitch

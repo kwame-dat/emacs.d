@@ -7,16 +7,18 @@
 
 (require 'mu4e)
 
-(setq message-send-mail-function 'smtpmail-send-it
-   starttls-use-gnutls t
-   smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
-   smtpmail-auth-credentials
-     '(("smtp.gmail.com" 587 "tony@arksolutions.it" nil))
-   smtpmail-default-smtp-server "smtp.gmail.com"
-   smtpmail-smtp-server "smtp.gmail.com"
-   smtpmail-smtp-service 587)
+(setq user-mail-address "tony@arksolutions.it")
 
-(setq mu4e-maildir "~/Mail")
+(setq message-send-mail-function 'smtpmail-send-it
+      starttls-use-gnutls t
+      smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
+      smtpmail-auth-credentials
+      '(("smtp.gmail.com" 587 "tony@arksolutions.it" nil))
+      smtpmail-default-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 587)
+
+(setq mu4e-maildir "~/.mail")
 (setq send-mail-function 'smtpmail-send-it)
 
 (setq mu4e-change-filenames-when-moving t)
@@ -184,27 +186,27 @@
 
 (use-package mu4e-alert)
 
-(use-package org-msg
-  :config
-  (setq mail-user-agent 'mu4e-user-agent)
-  (setq org-msg-options "html-postamble:nil H:5 num:nil ^:{} toc:nil author:nil email:nil \\n:t"
-	org-msg-startup "hidestars indent inlineimages"
-	org-msg-greeting-fmt "\nHi%s,\n\n"
-	org-msg-greeting-name-limit 3
-	org-msg-default-alternatives '((new		. (text html))
-				       (reply-to-html	. (text html))
-				       (reply-to-text	. (text)))
-	org-msg-convert-citation t
-	org-msg-signature "
+;; (use-package org-msg
+;;   :config
+;;   (setq mail-user-agent 'mu4e-user-agent)
+;;   (setq org-msg-options "html-postamble:nil H:5 num:nil ^:{} toc:nil author:nil email:nil \\n:t"
+;; 	org-msg-startup "hidestars indent inlineimages"
+;; 	org-msg-greeting-fmt "\nHi%s,\n\n"
+;; 	org-msg-greeting-name-limit 3
+;; 	org-msg-default-alternatives '((new		. (text html))
+;; 				       (reply-to-html	. (text html))
+;; 				       (reply-to-text	. (text)))
+;; 	org-msg-convert-citation t
+;; 	org-msg-signature "
 
- Regards,
+;;  Regards,
 
- #+begin_signature
- --
- *Tony*
- #+end_signature")
-(org-msg-mode)
-  )
+;;  #+begin_signature
+;;  --
+;;  *Tony*
+;;  #+end_signature")
+;;   (org-msg-mode)
+;;   )
 
 (provide 'init-mail)
 ;;; init-mail.el ends here

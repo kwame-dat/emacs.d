@@ -17,6 +17,13 @@
   :config
   (setq password-store-password-length 12))
 
+(use-package lastpass
+  :defer t
+  :config
+  (setq lastpass-trust-login t)
+  ;; Enable lastpass custom auth-source
+  (lastpass-auth-source-enable))
+
 (use-package auth-source-pass
   :defer t
   :config

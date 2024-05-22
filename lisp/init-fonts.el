@@ -1,10 +1,17 @@
 ;;; init-fonts.el --- Fonts -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
-(setq-default line-spacing 0.8)
-(set-face-attribute 'default nil :font "Operator Mono Light 16")
-(set-face-attribute 'fixed-pitch nil :font "Operator Mono Light 16")
-(set-face-attribute 'variable-pitch nil :font "Iosevka Aile 16")
+;; (setq-default line-spacing 0.8)
+
+(defvar kd/fixed-pitch-font "MonoLisa"
+  "The font used for `default' and `fixed-pitch' faces.")
+
+(defvar kd/variable-pitch-font "Avenir Next"
+  "The font used for `variable-pitch' face.")
+
+(set-face-attribute 'default nil :font kd/fixed-pitch-font :height 140)
+(set-face-attribute 'fixed-pitch nil :font kd/fixed-pitch-font :height 140)
+(set-face-attribute 'variable-pitch nil :font kd/variable-pitch-font)
 
 ;; Set the font face based on platform
 (use-package mixed-pitch
@@ -30,7 +37,7 @@
 ;;                                        "~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
 ;;                                        "[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
 ;;                                        ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:"
-;;                                        "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
+;;                                        "<$" "Avenir Next""<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
 ;;                                        "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
 ;;                                        ;; "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
 ;;                                        ;; "\\" "://"

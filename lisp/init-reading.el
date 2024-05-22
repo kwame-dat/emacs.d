@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (defun my-nov-font-setup ()
-  (face-remap-add-relative 'variable-pitch :family "Iosevka Aile 14"
+  (face-remap-add-relative 'variable-pitch :family kd/variable-pitch-font
 			   :height 1.4))
 ;; Reading EPUB
 (use-package nov

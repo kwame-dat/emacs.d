@@ -32,6 +32,7 @@
             (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 (delete-selection-mode t)
 
+
 (defun conditional-disable-modes ()
   (when (> (buffer-size) (* 3 1024 1024))
     (flycheck-mode -1)
@@ -40,7 +41,7 @@
     (which-function-mode -1)
     (linum-mode 0)
     )
-)
+  )
 (add-hook 'prog-mode-hook 'conditional-disable-modes)
 (add-hook 'text-mode-hook 'conditional-disable-modes)
 
@@ -124,23 +125,3 @@
 (require 'init-mail)
 
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("7e377879cbd60c66b88e51fad480b3ab18d60847f31c435f15f5df18bdb18184" "a242356ae1aebe9f633974c0c29b10f3e00ec2bc96a61ff2cdad5ffa4264996d" "aed3a896c4ea7cd7603f7a242fe2ab21f1539ab4934347e32b0070a83c9ece01" default))
- '(doom-modeline-check-simple-format t nil nil "Customized with use-package doom-modeline")
- '(safe-local-variable-values '((url-max-redirections . 0)))
- '(shell-pop-full-span t)
- '(shell-pop-shell-type '("vterm" "*vterm*" (lambda nil (vterm))))
- '(shell-pop-term-shell "/usr/zsh")
- '(shell-pop-window-position "bottom")
- '(shell-pop-window-size 50))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

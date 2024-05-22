@@ -13,6 +13,9 @@
 (use-package docker
   :defer t)
 
+(use-package ztree
+  :defer t)
+
 (kd/leader-key-def
   "d"  '(:ignore t :which-key "docker")
   "di" 'docker-images

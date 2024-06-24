@@ -3,10 +3,10 @@
 ;;; Code:
 ;; (setq-default line-spacing 0.8)
 
-(defvar kd/fixed-pitch-font "MonoLisa"
+(defvar kd/fixed-pitch-font "SF Mono"
   "The font used for `default' and `fixed-pitch' faces.")
 
-(defvar kd/variable-pitch-font "Avenir Next"
+(defvar kd/variable-pitch-font "Figtree"
   "The font used for `variable-pitch' face.")
 
 (set-face-attribute 'default nil :font kd/fixed-pitch-font :height 140)

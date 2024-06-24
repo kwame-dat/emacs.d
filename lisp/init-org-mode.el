@@ -10,6 +10,7 @@
 			 "~/org/calendar/ecal.org"
 			 "~/org/calendar/jcal.org"
 			 "~/org/calendar/wcal.org"
+			 "~/org/calendar/pcal.org"
 			 "~/org/habits.org"
 			 "~/org/ptodo.org"
 			 "~/org/wtodo.org"
@@ -92,6 +93,7 @@
 (setq org-caldav-url "https://nextcloud.theampomahs.com/remote.php/caldav/calendars/kwamedat")
 (setq org-caldav-calendars
       '(
+	(:calendar-id "personal" :inbox "~/org/calendar/pcal.org")
 	(:calendar-id "spiritual" :inbox "~/org/calendar/scal.org")
 	(:calendar-id "events" :inbox "~/org/calendar/ecal.org")
 	(:calendar-id "tony-tayo" :inbox "~/org/calendar/jcal.org")
@@ -240,7 +242,7 @@
 (setq org-capture-templates
       '(
 	("p" "Personal")
-	("pi" "Personal Inbox" entry (file "~/org/Inbox.org")
+	("pi" "Personal Inbox" entry (file "~/org/inbox.org")
 	 "* TODO %?\n %i\n")
 	("pp" "Personal Project" entry (file+headline "~/org/ptodo.org" "1Projects")
 	 (file "~/org/templates/project.org"))
@@ -286,7 +288,7 @@
 	 (file "~/org/templates/work/story.org"))
 	("wb" "Work Jira Bug Ticket" entry (file+headline "~/org/jira.org" "Jira")
 	 (file "~/org/templates/work/bug.org"))
-	("m" "Mail" entry (file+headline "~/org/Inbox.org" "")
+	("m" "Mail" entry (file+headline "~/org/inbox.org" "")
 	 "* TODO [#A] Process Email %:fromname on %:subject\nSCHEDULED:%t\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n:PROPERTIES:\n:CREATED: %U\n:END:\n %a" :immediate-finish t :prepend t)
 	))
 

@@ -15,6 +15,7 @@
 (setq tramp-histfile-override "/dev/null")
 (setq org-element-use-cache nil)
 (setq tramp-default-method "ssh")
+(add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-mode))
 
 ;; Native Compilation
 (setq comp-async-report-warnings-errors nil)
@@ -125,3 +126,22 @@
 (require 'init-mail)
 
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("88f7ee5594021c60a4a6a1c275614103de8c1435d6d08cc58882f920e0cec65e" "e1f4f0158cd5a01a9d96f1f7cdcca8d6724d7d33267623cc433fe1c196848554" "7e377879cbd60c66b88e51fad480b3ab18d60847f31c435f15f5df18bdb18184" "9f297216c88ca3f47e5f10f8bd884ab24ac5bc9d884f0f23589b0a46a608fe14" "b29ba9bfdb34d71ecf3322951425a73d825fb2c002434282d2e0e8c44fce8185" "0f76f9e0af168197f4798aba5c5ef18e07c926f4e7676b95f2a13771355ce850" default))
+ '(doom-modeline-check-simple-format t nil nil "Customized with use-package doom-modeline")
+ '(shell-pop-full-span t)
+ '(shell-pop-shell-type '("vterm" "*vterm*" (lambda nil (vterm))))
+ '(shell-pop-term-shell "/usr/zsh")
+ '(shell-pop-window-position "bottom")
+ '(shell-pop-window-size 50))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

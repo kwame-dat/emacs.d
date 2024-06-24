@@ -61,7 +61,7 @@
   (global-fish-completion-mode))
 
 (global-set-key (kbd "§") #'eshell-toggle)
-(global-set-key (kbd "s-<return>") 'eshell)
+(global-set-key (kbd "s-<return>") 'projectile-run-eshell)
 
 
 (provide 'init-eshell)

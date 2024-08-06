@@ -11,7 +11,6 @@
 			 "~/org/calendar/jcal.org"
 			 "~/org/calendar/wcal.org"
 			 "~/org/calendar/pcal.org"
-			 "~/org/habits.org"
 			 "~/org/ptodo.org"
 			 "~/org/wtodo.org"
 			 ))

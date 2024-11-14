@@ -2,38 +2,34 @@
 ;;; Commentary:
 ;;; Code:
 
-(setq lsp-log-io nil) ;; Don't log everything = speed
-(setq lsp-restart 'auto-restart)
-(setq lsp-ui-sideline-show-diagnostics t)
-(setq lsp-ui-sideline-show-hover nil)
-(setq lsp-ui-sideline-show-code-actions t)
-(setq lsp-ui-sideline-enable t)
-(setq lsp-ui-doc-position 'bottom)
+;; (setq lsp-log-io nil) ;; Don't log everything = speed
+;; (setq lsp-restart 'auto-restart)
+;; (setq lsp-ui-sideline-show-diagnostics t)
+;; (setq lsp-ui-sideline-show-hover nil)
+;; (setq lsp-ui-sideline-show-code-actions t)
+;; (setq lsp-ui-sideline-enable t)
+;; (setq lsp-ui-doc-position 'bottom)
+(setq lsp-idle-delay 0.500)
+
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
 
 (use-package lsp-mode
-  :defer t
-  :straight t
-  :config
-  (setq lsp-enable-file-watchers nil
-	lsp-auto-guess-root t
-	lsp-file-watch-threshold 3000)
-  :commands lsp
-  :hook ((typescript-mode
-          python-mode
-          js2-mode
-          web-mode
-          php-mode
-          c-mode) . lsp)
-  :bind (:map lsp-mode-map
-              ("TAB" . completion-at-point))
-  :custom (lsp-headerline-breadcrumb-enable nil))
+  :init
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+         (XXX-mode . lsp)
+         ;; if you want which-key integration
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
 
-(use-package company-lsp
-  :ensure t)
+(use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
-(use-package lsp-ivy
-  :commands lsp-ivy-workspace-symbol lsp-ivy-global-workspace-symbol
-  :ensure t)
+(use-package dap-mode)
+;; (use-package dap-LANGUAGE) to load the dap adapter for your language
+
 
 (kd/leader-key-def
   "l"  '(:ignore t :which-key "lsp")

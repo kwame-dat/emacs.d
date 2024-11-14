@@ -621,7 +621,7 @@
       ;;; <leader> n --- notes
   "nf" '(lambda() (interactive) (org-roam-node-find))
   "ng" '(lambda() (interactive) (org-roam-graph))
-  "ni" '(lambda() (interactive) (org-roam-node-insert))
+  "ni" '(lambda() (interactive) (find-file "~/org/inbox.org"))
   "nl" '(lambda() (interactive) (org-roam-buffer-toggle))
   "nc" '(lambda() (interactive) (org-roam-capture))
   "nn" '(lambda() (interactive) (org-capture))

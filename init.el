@@ -23,6 +23,7 @@
 
 ;; (require 'init-benchmarking) ;; Measure startup time
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
+
 (defconst *is-a-mac* (eq system-type 'darwin))
 
 ;; Adjust garbage collection thresholds during startup, and thereafter
@@ -45,6 +46,7 @@
   )
 (add-hook 'prog-mode-hook 'conditional-disable-modes)
 (add-hook 'text-mode-hook 'conditional-disable-modes)
+
 
 ;; Bootstrap config
 (require 'init-package-management)
@@ -74,7 +76,6 @@
 ;; Development
 (require 'init-git)
 (require 'init-projectile)
-(require 'init-eglot)
 
 ;; Tools
 (require 'init-docker)
@@ -83,6 +84,7 @@
 (require 'init-editorconfig)
 (require 'init-elastic-search)
 (require 'init-debugger)
+(require 'init-lsp)
 
 ;; Productivity
 (require 'init-syntax-checking)
@@ -125,6 +127,61 @@
 (require 'init-touch-typing)
 (require 'init-mail)
 
+(use-package eaf
+  :straight (eaf
+             :type git
+             :host github
+             :repo "emacs-eaf/emacs-application-framework"           
+             :files ("*.el" "*.py" "core" "app" "*.json")
+             :includes (eaf-pdf-viewer eaf-browser) ; Straight won't try to search for these packages when we make further use-package invocations for them
+             :pre-build (("python3" "install-eaf.py" "--install" "pdf-viewer" "browser" "--ignore-sys-deps"))
+             )
+  :init (evil-set-initial-state 'eaf-mode 'emacs))
+
+(setq eaf-browser-dark-mode "false")
+(use-package eaf-browser
+  :custom
+  (eaf-browser-continue-where-left-off t)
+  (eaf-browser-enable-adblocker t))
+
+(use-package eaf-pdf-viewer)
+(use-package eaf-terminal)
+;; (use-package eaf-map)
+;; (use-package eaf-markdown-previewer)
+;; (use-package eaf-file-browser)
+(use-package eaf-file-manager)
+;; (use-package eaf-mindmap)
+
+(use-package eaf-video-player)
+;; (use-package eaf-org-previewer)
+;; (use-package eaf-git)
+
+;; (require 'eaf-demo)
+;; (require 'eaf-file-sender)
+;; (require 'eaf-music-player)
+;; (require 'eaf-js-video-player)
+;; (require 'eaf-camera)
+;; (require 'eaf-rss-reader)
+;; (require 'eaf-terminal)
+;; (require 'eaf-image-viewer)
+;; (require 'eaf-pdf-viewer)
+;; (require 'eaf-browser)
+;; (require 'eaf-map)
+;; (require 'eaf-markdown-previewer)
+;; (require 'eaf-file-browser)
+;; (require 'eaf-file-manager)
+;; (require 'eaf-mindmap)
+;; (require 'eaf-vue-tailwindcss)
+;; (require 'eaf-video-player)
+;; (require 'eaf-org-previewer)
+;; (require 'eaf-airshare)
+;; (require 'eaf-jupyter)
+;; (require 'eaf-netease-cloud-music)
+;; (require 'eaf-git)
+;; (require 'eaf-system-monitor)
+;; (require 'eaf-pyqterminal)
+;; (require 'eaf-markmap)
+
 ;;; init.el ends here
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -134,6 +191,8 @@
  '(custom-safe-themes
    '("88f7ee5594021c60a4a6a1c275614103de8c1435d6d08cc58882f920e0cec65e" "e1f4f0158cd5a01a9d96f1f7cdcca8d6724d7d33267623cc433fe1c196848554" "7e377879cbd60c66b88e51fad480b3ab18d60847f31c435f15f5df18bdb18184" "9f297216c88ca3f47e5f10f8bd884ab24ac5bc9d884f0f23589b0a46a608fe14" "b29ba9bfdb34d71ecf3322951425a73d825fb2c002434282d2e0e8c44fce8185" "0f76f9e0af168197f4798aba5c5ef18e07c926f4e7676b95f2a13771355ce850" default))
  '(doom-modeline-check-simple-format t nil nil "Customized with use-package doom-modeline")
+ '(org-agenda-files
+   '("/Users/kwamedat/org/calendar/scal.org" "/Users/kwamedat/org/calendar/ecal.org" "/Users/kwamedat/org/calendar/jcal.org" "/Users/kwamedat/org/calendar/wcal.org" "/Users/kwamedat/org/calendar/pcal.org" "/Users/kwamedat/org/ptodo.org"))
  '(shell-pop-full-span t)
  '(shell-pop-shell-type '("vterm" "*vterm*" (lambda nil (vterm))))
  '(shell-pop-term-shell "/usr/zsh")

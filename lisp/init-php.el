@@ -8,8 +8,6 @@
   :config
   (setq php-mode-template-compatibility nil))
 
-(add-hook 'php-mode-hook 'eglot-ensure)
-
 (use-package phpunit
   :after php-mode
   :defer t)

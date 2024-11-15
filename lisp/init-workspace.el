@@ -5,6 +5,7 @@
   :custom
   (persp-mode-prefix-key (kbd "C-c M-p"))
   :config
+  (setq persp-sort 'created)
   (persp-mode))
 
 (use-package persp-projectile)

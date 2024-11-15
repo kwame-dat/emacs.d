@@ -149,7 +149,7 @@
 ;; (use-package eaf-map)
 ;; (use-package eaf-markdown-previewer)
 ;; (use-package eaf-file-browser)
-(use-package eaf-file-manager)
+;; (use-package eaf-file-manager)
 ;; (use-package eaf-mindmap)
 
 (use-package eaf-video-player)
@@ -189,7 +189,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("88f7ee5594021c60a4a6a1c275614103de8c1435d6d08cc58882f920e0cec65e" "e1f4f0158cd5a01a9d96f1f7cdcca8d6724d7d33267623cc433fe1c196848554" "7e377879cbd60c66b88e51fad480b3ab18d60847f31c435f15f5df18bdb18184" "9f297216c88ca3f47e5f10f8bd884ab24ac5bc9d884f0f23589b0a46a608fe14" "b29ba9bfdb34d71ecf3322951425a73d825fb2c002434282d2e0e8c44fce8185" "0f76f9e0af168197f4798aba5c5ef18e07c926f4e7676b95f2a13771355ce850" default))
+   '("1f82b7df8a4ce0e2ba3b0217d2c552b2fe5b5dd1244481cb65bef733f9818c63" "a74c85e1fdda49173902f7a1e92db7caf8bffcefc5c634bb37918cb8eb5174ec" "adb567dc2208b9e95ce3bc1930bf0e84a3eced91e674b4c35777e54650a60763" "aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8" "88f7ee5594021c60a4a6a1c275614103de8c1435d6d08cc58882f920e0cec65e" "e1f4f0158cd5a01a9d96f1f7cdcca8d6724d7d33267623cc433fe1c196848554" "7e377879cbd60c66b88e51fad480b3ab18d60847f31c435f15f5df18bdb18184" "9f297216c88ca3f47e5f10f8bd884ab24ac5bc9d884f0f23589b0a46a608fe14" "b29ba9bfdb34d71ecf3322951425a73d825fb2c002434282d2e0e8c44fce8185" "0f76f9e0af168197f4798aba5c5ef18e07c926f4e7676b95f2a13771355ce850" default))
  '(doom-modeline-check-simple-format t nil nil "Customized with use-package doom-modeline")
  '(org-agenda-files
    '("/Users/kwamedat/org/calendar/scal.org" "/Users/kwamedat/org/calendar/ecal.org" "/Users/kwamedat/org/calendar/jcal.org" "/Users/kwamedat/org/calendar/wcal.org" "/Users/kwamedat/org/calendar/pcal.org" "/Users/kwamedat/org/ptodo.org"))

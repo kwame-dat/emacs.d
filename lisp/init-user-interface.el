@@ -64,5 +64,7 @@
 
 (use-package rainbow-delimiters)
 
+(use-package command-log-mode)
+
 (provide 'init-user-interface)
 ;;; init-user-interface.el ends here

@@ -84,7 +84,7 @@
 (require 'init-editorconfig)
 (require 'init-elastic-search)
 (require 'init-debugger)
-(require 'init-lsp)
+(require 'init-eglot)
 
 ;; Productivity
 (require 'init-syntax-checking)

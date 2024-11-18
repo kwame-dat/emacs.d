@@ -1,7 +1,6 @@
 ;;; init-debugger.el --- debugger -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
-
 (use-package dap-mode
   :defer t
   :commands dap-mode

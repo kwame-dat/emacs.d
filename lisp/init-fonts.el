@@ -1,16 +1,16 @@
 ;;; init-fonts.el --- Fonts -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
-;; (setq-default line-spacing 0.8)
+(setq-default line-spacing 0.8)
 
-(defvar kd/fixed-pitch-font "Jetbrains Mono"
+(defvar kd/fixed-pitch-font "Cascadia Code"
   "The font used for `default' and `fixed-pitch' faces.")
 
 (defvar kd/variable-pitch-font "Figtree"
   "The font used for `variable-pitch' face.")
 
-(set-face-attribute 'default nil :font kd/fixed-pitch-font :height 150)
-(set-face-attribute 'fixed-pitch nil :font kd/fixed-pitch-font :height 150)
+(set-face-attribute 'default nil :font kd/fixed-pitch-font :height 160)
+(set-face-attribute 'fixed-pitch nil :font kd/fixed-pitch-font :height 160)
 (set-face-attribute 'variable-pitch nil :font kd/variable-pitch-font)
 
 ;; Set the font face based on platform

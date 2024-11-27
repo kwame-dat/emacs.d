@@ -84,7 +84,8 @@
 (require 'init-editorconfig)
 (require 'init-elastic-search)
 (require 'init-debugger)
-(require 'init-eglot)
+(require 'init-lsp)
+;; (require 'init-eglot)
 
 ;; Productivity
 (require 'init-syntax-checking)
@@ -135,7 +136,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("b11edd2e0f97a0a7d5e66a9b82091b44431401ac394478beb44389cf54e6db28" "6bdc4e5f585bb4a500ea38f563ecf126570b9ab3be0598bdf607034bb07a8875" default))
+   '("04aa1c3ccaee1cc2b93b246c6fbcd597f7e6832a97aaeac7e5891e6863236f9f" "b11edd2e0f97a0a7d5e66a9b82091b44431401ac394478beb44389cf54e6db28" "6bdc4e5f585bb4a500ea38f563ecf126570b9ab3be0598bdf607034bb07a8875" default))
  '(doom-modeline-check-simple-format t nil nil "Customized with use-package doom-modeline")
  '(shell-pop-full-span t)
  '(shell-pop-shell-type '("vterm" "*vterm*" (lambda nil (vterm))))

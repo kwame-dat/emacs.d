@@ -41,18 +41,17 @@
     (setq eshell-destroy-buffer-when-process-dies t)
     (setq eshell-visual-commands '("htop" "zsh" "vim"))))
 
-
-(use-package eshell-git-prompt
-  :config
-  (eshell-git-prompt-use-theme 'powerline))
+;; (use-package eshell-git-prompt
+;;   :config
+;;   (eshell-git-prompt-use-theme 'powerline))
 
 (use-package eshell-toggle)
 
-;; (add-hook
-;;  'eshell-mode-hook
-;;  (lambda ()
-;;    (setq pcomplete-cycle-completions nil)))
-
+(add-hook
+ 'eshell-mode-hook
+ (lambda ()
+   (setq-default line-spacing 0.8)
+   (setq pcomplete-cycle-completions nil)))
 
 (use-package fish-completion)
 
@@ -62,7 +61,6 @@
 
 (global-set-key (kbd "§") #'eshell-toggle)
 (global-set-key (kbd "s-<return>") 'projectile-run-eshell)
-
 
 (provide 'init-eshell)
 ;;; init-eshell.el ends here

@@ -5,7 +5,7 @@
 (straight-use-package 'doom-themes)
 (straight-use-package 'color-theme-sanityinc-tomorrow)
 
-(load-theme 'sanityinc-tomorrow-bright t)
+(load-theme 'sanityinc-tomorrow-night t)
 
 
 (provide 'init-themes)
